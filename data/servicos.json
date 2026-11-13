@@ -1,0 +1,42 @@
+[
+  {
+    "id": 11,
+    "tema": "Serviços",
+    "pergunta_chave": "Como emitir ou consultar o Cartão Nacional de Saúde (Cartão do SUS) pelo aplicativo Meu SUS Digital?",
+    "conteudo": "1) Baixe o aplicativo Meu SUS Digital (gratuito, Android e iOS) ou acesse meususdigital.saude.gov.br no navegador.\n2) Entre com a sua conta gov.br (CPF e senha).\n3) Abra o menu Meu Perfil e toque em Cartão Nacional de Saúde para ver, salvar ou compartilhar o comprovante digital.\n- Não é preciso imprimir: o cartão está disponível em formato digital.\n- Sem acesso ao app, procure uma unidade de saúde ou ligue para a Ouvidoria do SUS (136).\n- Desde 2025 o Ministério da Saúde adota o CPF como identificador único e o novo cartão exibe nome e CPF; o número do CNS segue como registro complementar (estrangeiros, indígenas, ribeirinhos).\n- Quem não tem CPF continua sendo atendido no SUS.",
+    "referencia": "Ministério da Saúde – Meu SUS Digital: https://www.gov.br/saude/pt-br/composicao/seidigi/meususdigital | Agência Gov, 16/09/2025: https://agenciagov.ebc.com.br/noticias/202509/ministerio-da-saude-comeca-a-emitir-cartao-sus-com-base-no-cpf",
+    "data_verificacao": "2026-11-13"
+  },
+  {
+    "id": 12,
+    "tema": "Serviços",
+    "pergunta_chave": "Como conseguir medicamentos gratuitos pelo programa Farmácia Popular?",
+    "conteudo": "1) Consulte um médico (SUS ou particular) e peça a receita, que deve estar dentro do prazo de validade.\n2) Procure uma farmácia ou drogaria com o selo \"Aqui Tem Farmácia Popular\".\n3) Leve a receita, um documento oficial com foto e o CPF do paciente.\n4) A farmácia confere os dados e registra a retirada no sistema.\n- Em 2026 o programa oferece 41 itens gratuitos, entre medicamentos (hipertensão, diabetes, asma, osteoporose, colesterol alto, rinite, anticoncepcionais) e insumos (fraldas geriátricas e absorventes).\n- Para os medicamentos não há limite de renda nem exigência de CadÚnico.\n- Outra pessoa pode retirar pelo paciente, levando os documentos exigidos.\n- Fralda geriátrica: idade de 60 anos ou mais, ou pessoa com deficiência. Absorventes seguem as regras do Dignidade Menstrual.\n- A lista muda com o tempo: confira a versão atual no site do Ministério da Saúde.",
+    "referencia": "Ministério da Saúde – Farmácia Popular: https://www.gov.br/saude/pt-br/composicao/sectics/farmacia-popular",
+    "data_verificacao": "2026-11-13"
+  },
+  {
+    "id": 13,
+    "tema": "Serviços",
+    "pergunta_chave": "Como tomar vacinas gratuitas do calendário nacional do SUS e quais documentos levar?",
+    "conteudo": "1) Consulte o Calendário Nacional de Vacinação para ver as vacinas indicadas para a idade e a situação (criança, adolescente, adulto, gestante, idoso).\n2) Vá a uma sala de vacina da Unidade Básica de Saúde (UBS) mais próxima.\n3) Leve documento de identificação com foto, CPF ou Cartão SUS e a caderneta de vacinação (física ou digital).\n4) Peça o registro das doses aplicadas na caderneta.\n- Todas as vacinas do calendário nacional são gratuitas no SUS.\n- Sem a caderneta, a equipe pode consultar o histórico no sistema; em caso de perda, é possível pedir segunda via na UBS.\n- O histórico também aparece no Meu SUS Digital (Minha Saúde > Vacinas).\n- Crianças devem ir acompanhadas do responsável.\n- Horários e vacinas disponíveis variam por município: confirme na UBS.",
+    "referencia": "Ministério da Saúde – Vacinação: https://www.gov.br/saude/pt-br/vacinacao | Instrução Normativa do Calendário Nacional de Vacinação 2026: https://www.gov.br/saude/pt-br/composicao/svsa/pni/calendario-tecnico/instrucao-normativa-que-instrui-o-calendario-nacional-de-vacinacao-2026",
+    "data_verificacao": "2026-11-13"
+  },
+  {
+    "id": 14,
+    "tema": "Serviços",
+    "pergunta_chave": "Como fazer ou atualizar a inscrição no Cadastro Único (CadÚnico) no CRAS?",
+    "conteudo": "1) Confira se a família se enquadra: renda mensal de até meio salário mínimo por pessoa ou renda total de até 3 salários mínimos.\n2) Procure o CRAS ou o posto de atendimento do Cadastro Único do seu município (o agendamento varia por cidade).\n3) O responsável familiar leva CPF ou título de eleitor; os demais moradores levam ao menos um documento (certidão de nascimento ou casamento, RG, carteira de trabalho etc.). Comprovante de residência ajuda.\n4) Faça a entrevista com o entrevistador social.\n5) Acompanhe a situação da família no aplicativo Meu CadÚnico.\n- O serviço é gratuito: não pague intermediários.\n- Atualize a cada 24 meses ou sempre que mudar endereço, renda ou composição da família.\n- Estar no CadÚnico não garante entrada imediata em programas sociais.",
+    "referencia": "Ministério do Desenvolvimento e Assistência Social (MDS) – Cadastro Único: https://www.gov.br/mds | Band, regras de atualização (Lei nº 15.077/2024): https://www.band.com.br/noticias/veja-como-e-quando-atualizar-os-dados-no-cadunico-202512040904",
+    "data_verificacao": "2026-11-13"
+  },
+  {
+    "id": 15,
+    "tema": "Serviços",
+    "pergunta_chave": "Como pedir isenção da taxa de inscrição em concursos públicos e vestibulares usando o CadÚnico?",
+    "conteudo": "1) Confirme que você está no CadÚnico, com cadastro atualizado nos últimos 24 meses e família com renda per capita de até meio salário mínimo.\n2) Leia o edital e localize o período e o formulário de pedido de isenção.\n3) No pedido, informe o seu NIS e o nome exatamente como consta no CadÚnico, declarando ser membro de família de baixa renda.\n4) A organizadora consulta o órgão gestor do CadÚnico e divulga o deferimento ou o indeferimento; se negado, apresente recurso à organizadora no prazo do edital.\n- Base legal para concursos do Poder Executivo federal: Decreto nº 6.593/2008 e Lei nº 13.656/2018 (esta também prevê isenção a doadores de medula óssea).\n- Concursos estaduais, municipais e vestibulares seguem as regras do próprio edital, que costuma aceitar o NIS do CadÚnico.\n- Cadastro feito ou atualizado há pouco tempo pode demorar cerca de 45 dias para aparecer na consulta: não deixe para a última hora.\n- Fique atento ao prazo de pagamento da taxa: se o pedido for indeferido, só vale a inscrição paga no prazo.",
+    "referencia": "Decreto nº 6.593/2008: https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2008/decreto/d6593.htm | Lei nº 13.656/2018: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13656.htm",
+    "data_verificacao": "2026-11-13"
+  }
+]
