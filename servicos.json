@@ -1,0 +1,42 @@
+[
+  {
+    "id": 11,
+    "tema": "Serviços",
+    "pergunta_chave": "Como emitir ou consultar meu Cartão do SUS (CNS) pelo Meu SUS Digital?",
+    "conteudo": "1) Baixe o app Meu SUS Digital (Android/iOS) ou acesse meususdigital.saude.gov.br. 2) Entre com sua conta gov.br. 3) Abra 'Meu Perfil': o número do CNS aparece ali; para a segunda via, toque em 'Cartão Nacional de Saúde' e salve ou compartilhe o arquivo. É gratuito. O novo cartão, anunciado em setembro de 2025, passa a exibir nome e CPF no lugar do número do CNS. Sem acesso ao app, peça a segunda via em uma unidade de saúde ou ligue para a Ouvidoria do SUS (136).",
+    "referencia": "Ministério da Saúde: Meu SUS Digital (meususdigital.saude.gov.br) e notícia de set/2025 sobre o Cartão SUS com CPF (gov.br/saude)",
+    "data_verificacao": "2026-11-12"
+  },
+  {
+    "id": 12,
+    "tema": "Serviços",
+    "pergunta_chave": "Como retirar medicamentos gratuitos pelo Farmácia Popular?",
+    "conteudo": "1) Tenha uma receita médica válida (do SUS ou particular, dentro da validade). 2) Vá a uma farmácia com o selo 'Aqui Tem Farmácia Popular'. 3) Diga ao farmacêutico que vai retirar pelo programa e apresente documento oficial com foto e CPF. São 41 itens gratuitos (medicamentos para hipertensão, diabetes e asma, entre outros, além de fraldas geriátricas e absorventes). Não é preciso ser de baixa renda nem ter CadÚnico. Fraldas: 60 anos ou mais ou pessoa com deficiência. Absorventes: beneficiárias do Programa Dignidade Menstrual. Outra pessoa pode retirar por você, levando os documentos exigidos. Dúvidas: Ouvidoria do SUS (136).",
+    "referencia": "Ministério da Saúde: Programa Farmácia Popular do Brasil (gov.br/saude, notícia de 05/03/2025)",
+    "data_verificacao": "2026-11-12"
+  },
+  {
+    "id": 13,
+    "tema": "Serviços",
+    "pergunta_chave": "Onde me vacino de graça e o que preciso levar?",
+    "conteudo": "As vacinas do Calendário Nacional são gratuitas no SUS, em todas as fases da vida, nas salas de vacina das Unidades Básicas de Saúde (UBS) e em campanhas. Leve documento oficial com foto, CPF e/ou Cartão do SUS (a exigência varia por município) e a caderneta de vacinação, física ou digital pelo Meu SUS Digital. Sem a caderneta, a equipe consulta seu histórico no sistema. Quem perdeu uma dose não recomeça o esquema, apenas continua de onde parou. Crianças e adolescentes devem ir com pai, mãe ou responsável. Vacinas e horários variam por município: confirme na UBS.",
+    "referencia": "Ministério da Saúde: Calendário Nacional de Vacinação (gov.br/saude/pt-br/vacinacao)",
+    "data_verificacao": "2026-11-12"
+  },
+  {
+    "id": 14,
+    "tema": "Serviços",
+    "pergunta_chave": "Como me inscrevo ou atualizo o CadÚnico no CRAS?",
+    "conteudo": "Podem se inscrever famílias de baixa renda (até meio salário mínimo por pessoa ou até 3 salários mínimos no total). 1) Procure o CRAS ou posto do Cadastro Único do seu município; o pré-cadastro pelo app Cadastro Único adianta, mas é preciso concluir presencialmente em até 120 dias. 2) O responsável familiar (16 anos ou mais, com CPF ou título de eleitor, de preferência mulher) leva seu documento e ao menos um documento de cada pessoa da família (certidão de nascimento ou casamento, CPF, RG), além de comprovante de residência. 3) Faça a entrevista. Atualize a cada 2 anos ou quando mudar renda, endereço ou composição da família. É gratuito: não pague a intermediários. Estar no CadÚnico não garante benefício imediato.",
+    "referencia": "Ministério do Desenvolvimento e Assistência Social (MDS): Cadastro Único para Programas Sociais (Portal Gov.br); Decreto nº 6.135/2007",
+    "data_verificacao": "2026-11-12"
+  },
+  {
+    "id": 15,
+    "tema": "Serviços",
+    "pergunta_chave": "Como pedir isenção da taxa de inscrição em concursos e vestibulares pelo CadÚnico?",
+    "conteudo": "Em concursos do Poder Executivo federal (Decreto nº 6.593/2008 e Lei nº 13.656/2018), tem direito quem está inscrito no CadÚnico com renda familiar por pessoa de até meio salário mínimo. 1) Mantenha o CadÚnico atualizado e anote seu NIS. 2) Leia o edital: ele define prazo e forma do pedido. 3) Na inscrição, peça a isenção informando o NIS válido e a declaração de família de baixa renda. 4) O órgão consulta o CadÚnico; acompanhe o resultado e, se indeferido, veja o prazo de recurso no edital. Declaração falsa gera sanções. Vestibulares e concursos estaduais ou municipais seguem regras do próprio edital ou da lei local.",
+    "referencia": "Decreto nº 6.593/2008 e Lei nº 13.656/2018; MDS: Cadastro Único (Portal Gov.br)",
+    "data_verificacao": "2026-11-12"
+  }
+]
