@@ -14,7 +14,7 @@ oficiais, com referência e data de verificação em cada registro.
 
 | Ferramenta | Onde ajudou | Quem revisou |
 |---|---|---|
-| Claude (Anthropic) | Estrutura do código em `src/`, testes em `tests/`, formato do Modelo 2, cálculo do indicador, rascunho deste arquivo | [nome do responsável] |
+| Claude (Anthropic) | Modelo 2 (`src/saida.py`), indicador (`src/indicador.py`), testes em `tests/`, rascunho deste arquivo | [nome do responsável] |
 | [outra ferramenta, se houver] | [uso] | [nome] |
 
 ## 2. Como a IA apoiou a estruturação de prompts
@@ -22,51 +22,46 @@ oficiais, com referência e data de verificação em cada registro.
 Escrevemos os pedidos à IA com **contexto, restrições e critério de pronto**,
 em vez de pedidos genéricos. Exemplos reais do que foi pedido:
 
-1. **Estrutura do programa**
-   > "Projeto de assistente em Python, só biblioteca padrão. A base é um JSON com
-   > registros (id, tema, pergunta_chave, conteudo, referencia, data de
-   > verificação). Preciso de duas formas de busca (palavra-chave e menu por
-   > tema) e de uma saída 'educativa e detalhada'. Separe leitura do JSON,
-   > busca e formatação em módulos diferentes."
+1. **Testar a parte de cada integrante**
+   > "Projeto em Python, só biblioteca padrão, dividido entre 5 pessoas. A base é
+   > um JSON com id, tema, pergunta_chave, conteudo, referencia e
+   > data_verificacao. Escreva testes que usem as funções dos colegas pelos nomes
+   > combinados e fiquem aguardando enquanto o arquivo de cada um não existir."
 
-   *Decisão nossa a partir da resposta:* só `src/base.py` conhece os campos do
-   JSON. A primeira versão gerada usava outro formato e precisou ser adaptada ao
-   formato que a equipe já tinha adotado (`carregador.py` e os registros 1 a 5).
+   *Decisão nossa a partir da resposta:* os testes da busca por tema, do Modelo 1
+   e do menu (`sistema.py`) ficam marcados como "aguardando" até o código chegar,
+   e passam a rodar sozinhos quando ele entrar no repositório.
 
 2. **Formato do Modelo 2**
-   > "Defina seções fixas para uma resposta educativa: o que fazer, passo a passo,
-   > por que isso importa, atenção, fonte com data. Seção sem conteúdo não deve
-   > aparecer em branco."
+   > "Defina seções fixas para uma resposta educativa: resumo, passo a passo,
+   > atenção e assuntos relacionados. Seção sem conteúdo não deve aparecer em
+   > branco. A fonte e o aviso vêm de outra função, feita por outro integrante."
 
 3. **Testes de entradas estranhas**
    > "Liste entradas de teclado que costumam quebrar programas de terminal em
    > Python (Enter vazio, Ctrl+D, números negativos, decimais, caracteres Unicode
    > que parecem dígitos, textos enormes, emojis)."
 
-   Essa lista virou a classe `TestEntradasEstranhas` em
-   `tests/test_integracao.py`, e a equipe completou com os casos encontrados na
-   validação manual.
+   Essa lista virou a lista `ESTRANHAS` em `tests/test_integracao.py`, usada para
+   testar o programa de verdade no terminal.
 
 ## 3. Como a IA apoiou os testes e o indicador
 
-- **Perguntas de teste** (`tests/perguntas_teste.json`): a IA sugeriu frases no jeito que
+- **Perguntas de teste** (`tests/perguntas_extras.json`): a IA sugeriu frases no jeito que
   um cidadão escreveria ("perdi meu CPF", "comprei pela internet e me arrependi").
   Revisamos e acrescentamos casos próprios.
 - **Ponto crítico que identificamos:** na primeira rodada o indicador deu **100%**.
   Concluímos que o número estava **viciado**: as mesmas pessoas (e a mesma IA)
   escreveram as palavras-chave e as perguntas de teste. Por isso incluímos casos
   **difíceis** (erro de digitação, sinônimo, assunto fora da base) marcados com
-  `"dificil": true`. A taxa caiu, e os erros mostraram o que melhorar:
-  - erro de digitação ("identidae") → corrigido com `difflib` (biblioteca padrão);
-  - palavra genérica sozinha ("documento do carro") respondia errado → nota mínima 2;
-  - verbo conjugado ("comprei", "arrependi") não casava → remoção de terminações (radical simples).
+  `"dificil": true`, e a taxa passou a mostrar as limitações reais.
 - **Segundo ponto cego:** perguntas sobre assuntos que ainda não estavam na base
-  eram ignoradas pelo indicador. Ao conferir, 11 delas recebiam uma resposta
-  **errada** de outro tema (ex.: "atualizar cadastro no CRAS" respondia com o
-  registro do CPF). Passamos a contar isso como erro ("falso positivo") e
-  corrigimos a busca: palavras que só aparecem no texto do conteúdo não bastam
-  para responder, e o radical das palavras deixou de juntar "compra" com
-  "comprovante".
+  eram ignoradas pelo indicador. Ao conferir, várias recebiam uma resposta
+  **errada** de outro tema. Passamos a contar isso como erro ("falso positivo").
+- **Peças provisórias retiradas:** para testar antes de o código do grupo
+  existir, a IA chegou a escrever uma busca, um menu e um programa principal
+  provisórios. Eles foram retirados para não duplicar as partes dos colegas, e o
+  indicador e os testes passaram a usar o código oficial de cada um.
 - **Casos que continuam falhando** ficam no arquivo de propósito, porque mostram as
   limitações reais (ver `docs/resultado_indicador.md`).
 
@@ -76,8 +71,8 @@ em vez de pedidos genéricos. Exemplos reais do que foi pedido:
   `referencia` e `data_verificacao` preenchidos por um integrante.
 - Não decidiu sozinha: todo código gerado foi lido, executado e testado pela equipe
   (`python -m unittest discover -s tests`).
-- Não substitui orientação jurídica ou médica. O programa mostra esse aviso em
-  toda resposta do Modelo 2.
+- Não substitui orientação jurídica ou médica. O aviso de limitação aparece nas
+  respostas.
 
 ## 5. Limitações e riscos que consideramos
 
@@ -85,9 +80,8 @@ em vez de pedidos genéricos. Exemplos reais do que foi pedido:
   da base veio da IA sem conferência na fonte oficial.
 - **Viés do teste:** quem escreve a base e os testes tende a acertar o próprio
   vocabulário. Mitigação: casos difíceis e testes cruzados entre integrantes.
-- **Busca por palavra-chave tem teto:** sinônimos que não estão na base
-  ("estragou" × "defeito") não são encontrados. Melhorar exige ampliar as
-  palavras-chave, não só o código.
+- **Busca por palavra-chave tem teto:** sinônimos que não aparecem no texto
+  ("estragou" × "defeito") não são encontrados.
 
 ## 6. Uso por integrante
 

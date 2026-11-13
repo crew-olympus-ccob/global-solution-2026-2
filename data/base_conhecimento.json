@@ -5,15 +5,7 @@
     "pergunta_chave": "Como emitir a nova Carteira de Identidade Nacional (CIN)?",
     "conteudo": "Agende o atendimento no instituto de identificação do seu estado (em São Paulo, pelo Poupatempo) a partir do portal gov.br/identidade. No dia marcado, leve a certidão de nascimento ou de casamento original para a coleta de biometria. A primeira via é gratuita e a CIN usa o CPF como número único de identificação. Depois de emitida, a versão digital pode ser adicionada à carteira de documentos do aplicativo gov.br, com conta de nível prata ou ouro.",
     "referencia": "https://www.gov.br/identidade",
-    "data_verificacao": "2026-11-12",
-    "palavras_chave": [
-      "cin",
-      "rg",
-      "identidade",
-      "carteira de identidade",
-      "nova identidade",
-      "segunda via do rg"
-    ]
+    "data_verificacao": "2026-11-12"
   },
   {
     "id": 2,
@@ -21,13 +13,7 @@
     "pergunta_chave": "Como tirar a primeira ou a segunda via do CPF?",
     "conteudo": "O comprovante de inscrição no CPF é emitido de graça pelos canais digitais: site ou aplicativo da Receita Federal, portal ou aplicativo gov.br e portal e-CAC. Informe o número do CPF e a data de nascimento e baixe o comprovante em PDF. Quem não lembra o número do CPF precisa agendar atendimento presencial em uma unidade da Receita Federal. Desconfie de qualquer site ou pessoa que cobre para emitir o comprovante pelos canais digitais.",
     "referencia": "https://www.gov.br/receitafederal/pt-br",
-    "data_verificacao": "2026-11-12",
-    "palavras_chave": [
-      "cpf",
-      "segunda via do cpf",
-      "comprovante do cpf",
-      "perdi meu cpf"
-    ]
+    "data_verificacao": "2026-11-12"
   },
   {
     "id": 3,
@@ -35,15 +21,7 @@
     "pergunta_chave": "Como emitir o título de eleitor e consultar a situação eleitoral?",
     "conteudo": "Use o Autoatendimento Eleitoral (Título Net), no portal do TSE, ou o aplicativo e-Título. Para consultar a situação, entre em Consultas, escolha Situação do título e informe o número do título, o CPF ou o nome completo com a data de nascimento. O sistema mostra se o título está regular, suspenso ou cancelado e se há multas. Se houver pendência, a regularização pode ser pedida online ou no cartório eleitoral, com documento oficial com foto e comprovante de residência. Perto das eleições o cadastro fica fechado para emissão e alterações, mas a consulta continua liberada.",
     "referencia": "https://www.tse.jus.br/servicos-eleitorais/servicos/carta-de-servicos-ao-eleitor",
-    "data_verificacao": "2026-11-12",
-    "palavras_chave": [
-      "titulo de eleitor",
-      "eleitor",
-      "situacao eleitoral",
-      "votar",
-      "e-titulo",
-      "multa eleitoral"
-    ]
+    "data_verificacao": "2026-11-12"
   },
   {
     "id": 4,
@@ -51,12 +29,7 @@
     "pergunta_chave": "Como acessar a Carteira de Trabalho Digital?",
     "conteudo": "Quem tem CPF já tem a Carteira de Trabalho Digital, só é preciso habilitar o acesso. Baixe o aplicativo Carteira de Trabalho Digital (Android ou iOS) ou acesse pelo portal gov.br, entre com o CPF e a senha da conta gov.br e valide os dados. Para ver todas as informações, a conta gov.br precisa estar no nível prata ou ouro. O serviço é gratuito.",
     "referencia": "https://www.gov.br/pt-br/servicos/obter-a-carteira-de-trabalho",
-    "data_verificacao": "2026-11-12",
-    "palavras_chave": [
-      "carteira de trabalho",
-      "ctps",
-      "carteira de trabalho digital"
-    ]
+    "data_verificacao": "2026-11-12"
   },
   {
     "id": 5,
@@ -64,14 +37,7 @@
     "pergunta_chave": "Como emitir a certidão de antecedentes criminais?",
     "conteudo": "A certidão da Polícia Federal é emitida pela internet, de graça, no serviço Emitir Certidão de Antecedentes Criminais do gov.br, informando os dados pessoais pedidos. Ela vale por 90 dias e pode ter a autenticidade conferida no serviço de validação da Polícia Federal. Ela informa registros nos sistemas da Polícia Federal. Certidões estaduais ou de outras Justiças são emitidas por cada órgão e podem ser exigidas à parte.",
     "referencia": "https://www.gov.br/pt-br/servicos/emitir-certidao-de-antecedentes-criminais",
-    "data_verificacao": "2026-11-12",
-    "palavras_chave": [
-      "antecedentes criminais",
-      "certidao de antecedentes",
-      "nada consta",
-      "ficha criminal",
-      "atestado de antecedentes"
-    ]
+    "data_verificacao": "2026-11-12"
   },
   {
     "id": 6,
