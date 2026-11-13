@@ -1,73 +1,92 @@
-# FIAP - Faculdade de Informática e Administração Paulista
-
-<br>
-
-# Nome do projeto/atividade
-
-## Nome do grupo
-
-## 👨‍🎓 Integrantes: 
-- <a href="Link do perfil no LinkedIn ou GitHub">Nome do integrante 1</a>
-- <a href="Link do perfil no LinkedIn ou GitHub">Nome do integrante 2</a>
-- <a href="Link do perfil no LinkedIn ou GitHub">Nome do integrante 3</a> 
-- <a href="Link do perfil no LinkedIn ou GitHub">Nome do integrante 4</a> 
-- <a href="Link do perfil no LinkedIn ou GitHub">Nome do integrante 5</a>
-
-## 👩‍🏫 Professores:
-
-### Tutor(a)
-- <a href="Link do perfil no LinkedIn">Nome do Tutor</a>
-  
-### Coordenador(a)
-- <a href="https://www.linkedin.com/in/andregodoichiovato/">André Godoi Chiovato</a>
-
-## 📜 Descrição
-
-*Descreva aqui seu projeto em detalhes de forma estruturada e organizada*
-
-## 📁 Estrutura de pastas 
-
-*‼️ OBSERVAÇÃO DO TUTOR -- favor remover antes de subir o trabalho -- não há a obrigação de usar todas as pasta propostas, use apenas o que fizer SENTIDO para a entrega. Também está permitido criar mais pastas conforme necessidade visando a melhor organização do projeto. ‼️*
-
-Abaixo encontra-se a descrição da organização da raiz do projeto e a finalidade de cada diretório e arquivo:
-
-* **`data/`** Armazena todas as bases de dados utilizadas no projeto, incluindo arquivos estruturados (como CSV, Excel, JSON), bases de dados sintéticas e outros formatos brutos ou processados.
-
-* **`docs/`** Centraliza a documentação técnica e de negócio do projeto.
-
-* **`notebooks/`** Destinado a cadernos interativos (como *Jupyter Notebooks* ou *Google Colab*) utilizados para análise exploratória de dados, experimentação de algoritmos, prototipagem de modelos, etc.
-
-* **`src/`** Contém todo o código-fonte desenvolvido para o projeto. Dependendo do âmbito da atividade, pode incluir arquivos como: scripts (Python, R, JS), ficheiros web (HTML), firmware para hardware (ESP32/Arduino), além de APIs, microsserviços e ficheiros de modelos e inferências.
-
-* **`README.md`** Este ficheiro. Funciona como o guia principal de introdução, configuração e contextualização do projeto.
-
-## 📎 Links e Observações
-
-### 🔗 Links do Projeto
-
-*Substitua ou duplique a estrutura abaixo para cada link relevante do projeto:*
-
-* **[Nome do Link (ex: Vídeo de Entrega no YouTube)]**(http://url-aqui) - Breve descrição.
-
-### 🧠 Decisões Técnicas
-
-*Utilize este espaço para registar as principais escolhas tecnológicas do projeto e as suas justificações (ex: escolha de frameworks, banco de dados, arquitetura, etc.):*
-
-> Escreva aqui as observações e justificações técnicas do projeto...
-
-### 📢 Observações Gerais
-
-*Indique obrigatoriamente no campo abaixo a decisão da equipe quanto à participação na competição:*
-
-* **Participação na Competição:** [ ] Sim, aceitamos participar / [ ] Não vamos participar.
-* *Outras observações gerais (opcional):* Escreva aqui...
-
-## 🔧 Como executar o código
-
-*Acrescentar as informações necessárias sobre pré-requisitos (IDEs, serviços, bibliotecas etc.) e instalação básica do projeto, descrevendo eventuais versões utilizadas. Colocar um passo a passo de como o leitor pode baixar o seu código e executá-lo a partir de sua máquina ou seu repositório.*
-
+# Crew Olympus: CitizenTech, assistente de orientação ao cidadão
+ 
+Assistente em Python, executado no terminal, desenvolvido para a Global Solution 2026 da FIAP. Ele orienta o cidadão sobre documentação, direitos do consumidor e serviços de saúde e assistência, a partir de uma base de conhecimento em JSON.
+ 
+## Equipe Crew Olympus
+ 
+| Nome | RM |
+|--------|--------|
+| Gabriel Tavares Martins de Oliveira | RM573718 |
+| Lucas Araujo de Carvalho | RM571060 |
+| Matheus Henrique Pedrozo Traiba | RM571817 |
+| Miguel Monteiro Moreira | RM572904 |
+| Pedro Henrique de Lima Costa | RM573008 |
+ 
 ---
-
-## 📋 Licença
-
-<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/fiap-tutoria/FIAP-PORTFOLIO-AI">TEMPLATE - FIAP PORTFÓLIO AI</a> por <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://fiap.com.br">FIAP</a> está licenciado sobre <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
+ 
+# Sobre o Projeto
+ 
+## O problema
+ 
+Muita gente não sabe por onde começar quando precisa emitir um documento, fazer valer um direito do consumidor ou acessar um serviço público. As informações existem, mas ficam espalhadas em vários sites e nem sempre estão em linguagem simples. O resultado é tempo perdido, idas desnecessárias a órgãos públicos e, em alguns casos, o risco de cair em sites falsos que cobram por serviços gratuitos.
+ 
+## Público beneficiado
+ 
+Cidadãos em geral, principalmente quem tem pouca familiaridade com serviços digitais do governo e precisa de um passo a passo direto, com a fonte oficial indicada.
+ 
+## Temas abordados
+ 
+A base de conhecimento tem 15 registros, divididos em três temas:
+ 
+| Tema | Assuntos |
+|---|---|
+| Documentação | Carteira de Identidade Nacional (CIN), CPF, título de eleitor, Carteira de Trabalho Digital e certidão de antecedentes criminais |
+| Direitos do Consumidor | Direito de arrependimento, garantia legal, cobrança indevida, cancelamento de serviços e reclamação no consumidor.gov.br |
+| Saúde Pública e Serviços Comunitários | Cartão do SUS, Farmácia Popular, vacinação, CadÚnico e isenção de taxas em concursos |
+ 
+---
+ 
+# Estrutura do Projeto
+ 
+```text
+global-solution-2026-2/
+│
+├── data/
+│   └── base_conhecimento.json
+│
+├── src/
+│   ├── sistema.py
+│   ├── carregador.py
+│   └── navegacao.py
+│
+├── tests/
+│   └── perguntas_teste_1.json
+│
+├── docs/
+│   └── uso_ia.md
+│
+├── CHANGELOG.md
+└── README.md
+```
+ 
+---
+ 
+# Como Executar
+ 
+Requisitos: Python 3.8 ou superior. Não há dependências externas.
+ 
+## Clone o projeto
+ 
+```bash
+git clone https://github.com/crew-olympus-ccob/global-solution-2026-2
+```
+ 
+## Entre na pasta
+ 
+```bash
+cd global-solution-2026-2
+```
+ 
+## Execute o sistema
+ 
+```bash
+python src/sistema.py
+```
+ 
+Siga o menu no terminal para buscar por pergunta ou escolher um tema.
+ 
+---
+ 
+# Aviso
+ 
+As respostas são informativas e não oficiais. Em caso de dúvida, confirme sempre no canal oficial indicado na fonte de cada resposta.
