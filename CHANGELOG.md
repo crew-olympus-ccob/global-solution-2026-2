@@ -5,6 +5,11 @@ Todas as mudanças relevantes do projeto ficam registradas aqui, da mais recente
 ## 13/11/2026
 
 ### Adicionado
+- **Matheus Traiba**: `data/base_conhecimento.json` com 5 registros do tema Direitos do Consumidor (ids 6 a 10): direito de arrependimento em compras online, garantia legal de produtos duráveis e não duráveis, cobrança indevida, cancelamento de serviços de telecomunicações e registro de reclamações no Consumidor.gov.br.
+- **Matheus Traiba**: Protótipo inicial do algoritmo de busca léxica em Python (`src/busca.py`) com normalização de texto (remoção de acentos e pontuação), filtragem de stopwords e pontuação de relevância por correspondência parcial de palavras-chave.
+- **Matheus Traiba**: Definição da arquitetura do projeto, escolha dos temas cidadãos e planejamento da divisão de tarefas (Sprint de 6 dias) para a equipe.
+
+### Adicionado
 - **Pedro Lima**: `src/main.py` com o programa de terminal, que integra as duas formas de busca (palavra-chave e menu por tema), a troca de modelo de resposta e a navegação entre assuntos relacionados.
 - **Pedro Lima**: `src/saida.py` com o Modelo 2 (Educativo e Detalhado), que organiza a resposta em resumo, como fazer, atenção, fonte com data de verificação, veja também e aviso de limitação.
 - **Pedro Lima**: `src/busca.py` com a busca por palavra-chave (ignora acentos, reconhece plural e conjugação, corrige erro de digitação e pergunta ao usuário em caso de empate) e a busca por menu de tema.
