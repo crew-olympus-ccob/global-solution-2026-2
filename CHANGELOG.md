@@ -10,22 +10,13 @@ Todas as mudanças relevantes do projeto ficam registradas aqui, da mais recente
 - **Matheus Traiba**: Definição da arquitetura do projeto, escolha dos temas cidadãos e planejamento da divisão de tarefas (Sprint de 6 dias) para a equipe.
 
 ### Adicionado
-- **Pedro Lima**: `src/main.py` com o programa de terminal, que integra as duas formas de busca (palavra-chave e menu por tema), a troca de modelo de resposta e a navegação entre assuntos relacionados.
-- **Pedro Lima**: `src/saida.py` com o Modelo 2 (Educativo e Detalhado), que organiza a resposta em resumo, como fazer, atenção, fonte com data de verificação, veja também e aviso de limitação.
-- **Pedro Lima**: `src/busca.py` com a busca por palavra-chave (ignora acentos, reconhece plural e conjugação, corrige erro de digitação e pergunta ao usuário em caso de empate) e a busca por menu de tema.
-- **Pedro Lima**: `src/base.py` com a validação dos registros lidos pelo `carregador.py` (campos obrigatórios, id inteiro e único, data no formato `AAAA-MM-DD`).
-- **Pedro Lima**: `src/indicador.py` com o cálculo automático da taxa de acerto (%) das buscas sobre as perguntas de teste.
-- **Pedro Lima**: `tests/test_unidades.py`, `tests/test_integracao.py` e `tests/fixtures/base_teste.json` com 61 testes automatizados, incluindo entradas estranhas como Enter vazio, Ctrl+D e textos muito longos.
-- **Pedro Lima**: 51 perguntas novas em `tests/perguntas_teste.json`.
+- **Pedro Lima**: `src/saida.py` com o Modelo 2 (Educativo e Detalhado), que organiza a resposta em resumo, passo a passo ou como fazer, atenção e veja também, e recebe a fonte e o aviso prontos.
+- **Pedro Lima**: `src/indicador.py` com o cálculo automático da taxa de acerto (%) das duas formas de busca sobre as perguntas de teste.
+- **Pedro Lima**: `tests/test_unidades.py` e `tests/test_integracao.py` com os testes de integração da leitura do JSON, das duas buscas, dos dois modelos de resposta e do menu, incluindo entradas estranhas; as partes ainda não entregues ficam marcadas como aguardando.
+- **Pedro Lima**: `tests/perguntas_extras.json` com 51 perguntas para o indicador e `tests/fixtures/base_teste.json` com a base fixa dos testes.
 - **Pedro Lima**: `docs/uso_ia.md` com a explicação de como ferramentas de IA apoiaram a estruturação de prompts e testes.
-- **Pedro Lima**: `docs/guia_registros.md` com as instruções para a equipe escrever os registros e `docs/resultado_indicador.md` com o relatório do indicador.
-
-### Alterado
-- **Pedro Lima**: `data/base_conhecimento.json` com o campo `palavras_chave` nos registros 1 a 5, sem alterar o conteúdo.
-- **Pedro Lima**: `README.md` com a seção "Decisões Técnicas", os comandos de testes e do indicador e a estrutura de pastas atualizada.
-
-### Corrigido
-- **Pedro Lima**: `src/navegacao.py` não encerra mais o programa ao digitar `²` ou apertar Ctrl+D na escolha de assunto relacionado.
+- **Pedro Lima**: `docs/resultado_indicador.md` com o relatório do indicador.
+- **Pedro Lima**: `.gitignore` do repositório.
 
 ## 12/11/2026
 
