@@ -1,8 +1,0 @@
-[
-  {"pergunta": "Como faço para tirar a nova identidade?", "id_esperado": 1},
-  {"pergunta": "Perdi meu CPF, como tiro a segunda via?", "id_esperado": 2},
-  {"pergunta": "Como consultar a situação do meu título de eleitor?", "id_esperado": 3},
-  {"pergunta": "Como acessar a minha carteira de trabalho digital?", "id_esperado": 4},
-  {"pergunta": "Como emitir a certidão de antecedentes criminais?", "id_esperado": 5},
-  {"pergunta": "Comprei pela internet e quero desistir da compra, qual o prazo?", "id_esperado": 6}
-]
