@@ -72,5 +72,45 @@
       "ficha criminal",
       "atestado de antecedentes"
     ]
+  },
+  {
+    "id": 6,
+    "tema": "Direitos do Consumidor",
+    "pergunta_chave": "Como funciona o direito de arrependimento em compras online?",
+    "conteudo": "Conforme o artigo 49 do Código de Defesa do Consumidor, quem compra produtos ou contrata serviços fora do estabelecimento comercial (internet, telefone ou catálogo) tem o prazo de 7 dias corridos, a contar do recebimento do produto ou da assinatura do contrato, para desistir da compra sem precisar justificar o motivo. O consumidor tem direito à devolução integral de qualquer valor pago, incluindo o frete, e os custos de devolução do produto ficam por conta do fornecedor.",
+    "referencia": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+    "data_verificacao": "2026-11-12"
+  },
+  {
+    "id": 7,
+    "tema": "Direitos do Consumidor",
+    "pergunta_chave": "Qual é o prazo da garantia legal para produtos com defeito?",
+    "conteudo": "De acordo com o artigo 26 do Código de Defesa do Consumidor, o prazo para reclamar de defeitos aparentes ou de fácil constatação é de 30 dias para produtos e serviços não duráveis (como alimentos e cosméticos) e de 90 dias para bens duráveis (como eletrodomésticos, móveis e celulares), contados a partir da entrega efetiva. Caso o defeito seja oculto, o prazo começa a contar no momento em que o problema ficar evidenciado. A garantia contratual oferecida pelo fabricante é complementar à garantia legal.",
+    "referencia": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+    "data_verificacao": "2026-11-12"
+  },
+  {
+    "id": 8,
+    "tema": "Direitos do Consumidor",
+    "pergunta_chave": "O que fazer em caso de cobrança indevida?",
+    "conteudo": "Segundo o artigo 42 do Código de Defesa do Consumidor, o consumidor cobrado em quantia indevida que já tenha efetuado o pagamento tem direito à repetição do indébito, ou seja, à devolução em dobro do valor pago em excesso, acrescido de correção monetária e juros legais, salvo hipótese de engano justificável por parte do fornecedor. Guarde os comprovantes de pagamento e faturas, entre em contato com o SAC da empresa exigindo o estorno e, se não houver acordo, registre reclamação no Procon ou no portal Consumidor.gov.br.",
+    "referencia": "https://www.procon.sp.gov.br/",
+    "data_verificacao": "2026-11-12"
+  },
+  {
+    "id": 9,
+    "tema": "Direitos do Consumidor",
+    "pergunta_chave": "Como cancelar serviços de internet ou telefone sem pagar multa abusiva?",
+    "conteudo": "Conforme as regras da Anatel, o consumidor pode solicitar o cancelamento de serviços de telecomunicações (internet, TV por assinatura e telefonia) a qualquer momento pelos canais digitais da operadora ou por telefone, sem precisar falar com um atendente. A multa por quebra de fidelidade só pode ser cobrada se houver contrato vigente com benefício concedido (prazo máximo de 12 meses) e deve ser proporcional ao tempo restante. Além disso, se o cancelamento ocorrer por má qualidade ou falha comprovada na prestação do serviço, a multa não pode ser exigida.",
+    "referencia": "https://www.gov.br/anatel/pt-br/consumidor",
+    "data_verificacao": "2026-11-12"
+  },
+  {
+    "id": 10,
+    "tema": "Direitos do Consumidor",
+    "pergunta_chave": "Como registrar uma reclamação formal no portal Consumidor.gov.br?",
+    "conteudo": "Acesse o site consumidor.gov.br e faça login utilizando sua conta gov.br. Pesquise o nome da empresa reclamada na base de fornecedores cadastrados, preencha o relato do problema de forma objetiva, informe o pedido desejado (como estorno, troca ou cancelamento) e anexe documentos comprobatórios (notas fiscais, protocolos ou faturas). A empresa tem até 10 dias para analisar e responder à solicitação, e o consumidor dispõe de até 20 dias para avaliar a solução apresentada.",
+    "referencia": "https://www.consumidor.gov.br/",
+    "data_verificacao": "2026-11-12"
   }
 ]

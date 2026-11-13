@@ -1,54 +1,118 @@
-# FIAP - Faculdade de Informática e Administração Paulista
-
-<br>
-
-# Nome do projeto/atividade
-
-## Nome do grupo
-
-## 👨‍🎓 Integrantes: 
-- <a href="Link do perfil no LinkedIn ou GitHub">Nome do integrante 1</a>
-- <a href="Link do perfil no LinkedIn ou GitHub">Nome do integrante 2</a>
-- <a href="Link do perfil no LinkedIn ou GitHub">Nome do integrante 3</a> 
-- <a href="Link do perfil no LinkedIn ou GitHub">Nome do integrante 4</a> 
-- <a href="Link do perfil no LinkedIn ou GitHub">Nome do integrante 5</a>
-
-## 👩‍🏫 Professores:
-
-### Tutor(a)
-- <a href="Link do perfil no LinkedIn">Nome do Tutor</a>
-  
-### Coordenador(a)
-- <a href="https://www.linkedin.com/in/andregodoichiovato/">André Godoi Chiovato</a>
-
-## 📜 Descrição
-
-*Descreva aqui seu projeto em detalhes de forma estruturada e organizada*
-
-## 📁 Estrutura de pastas
-
-* **`data/`**: `base_conhecimento.json`: os registros de orientação (um por assunto), cada um com referência oficial e data de verificação.
-* **`src/`**: código-fonte em Python (só biblioteca padrão):
-  * `main.py`: programa de terminal (menu, as duas formas de busca, troca de modelo de resposta);
-  * `carregador.py`: leitura segura do JSON com tratamento de arquivo ausente ou corrompido;
-  * `base.py`: validação dos campos de cada registro (usa o `carregador.py`);
-  * `busca.py`: busca por palavra-chave (com correção de digitação) e por menu tema → assunto;
-  * `navegacao.py`: navegação entre assuntos relacionados do mesmo tema;
-  * `saida.py`: Modelo 1 (direto) e Modelo 2 (educativo e detalhado);
-  * `indicador.py`: cálculo automático da taxa de acerto (%).
-* **`tests/`**: testes automatizados (`unittest`), perguntas do indicador (`perguntas_teste.json`) e base fixa de testes (`fixtures/`).
-* **`docs/`**: documentação, `uso_ia.md`, `guia_registros.md`, `resultado_indicador.md`.
-* **`README.md`**: este arquivo.
-
-## 📎 Links e Observações
-
-### 🔗 Links do Projeto
-
-*Substitua ou duplique a estrutura abaixo para cada link relevante do projeto:*
-
-* **[Nome do Link (ex: Vídeo de Entrega no YouTube)]**(http://url-aqui) - Breve descrição.
-
-### 🧠 Decisões Técnicas
+# Crew Olympus: CitizenTech, assistente de orientação ao cidadão
+ 
+Assistente em Python, executado no terminal, desenvolvido para a Global Solution 2026 da FIAP. Ele orienta o cidadão sobre documentação, direitos do consumidor e serviços de saúde e assistência, a partir de uma base de conhecimento em JSON.
+ 
+## Equipe Crew Olympus
+ 
+| Nome | RM |
+|--------|--------|
+| Gabriel Tavares Martins de Oliveira | RM573718 |
+| Lucas Araujo de Carvalho | RM571060 |
+| Matheus Henrique Pedrozo Traiba | RM571817 |
+| Miguel Monteiro Moreira | RM572904 |
+| Pedro Henrique de Lima Costa | RM573008 |
+ 
+---
+ 
+# Sobre o Projeto
+ 
+## O problema
+ 
+Muita gente não sabe por onde começar quando precisa emitir um documento, fazer valer um direito do consumidor ou acessar um serviço público. As informações existem, mas ficam espalhadas em vários sites e nem sempre estão em linguagem simples. O resultado é tempo perdido, idas desnecessárias a órgãos públicos e, em alguns casos, o risco de cair em sites falsos que cobram por serviços gratuitos.
+ 
+## Público beneficiado
+ 
+Cidadãos em geral, principalmente quem tem pouca familiaridade com serviços digitais do governo e precisa de um passo a passo direto, com a fonte oficial indicada.
+ 
+## Temas abordados
+ 
+A base de conhecimento tem 15 registros, divididos em três temas:
+ 
+| Tema | Assuntos |
+|---|---|
+| Documentação | Carteira de Identidade Nacional (CIN), CPF, título de eleitor, Carteira de Trabalho Digital e certidão de antecedentes criminais |
+| Direitos do Consumidor | Direito de arrependimento, garantia legal, cobrança indevida, cancelamento de serviços e reclamação no consumidor.gov.br |
+| Saúde Pública e Serviços Comunitários | Cartão do SUS, Farmácia Popular, vacinação, CadÚnico e isenção de taxas em concursos |
+ 
+---
+ 
+# Estrutura do Projeto
+ 
+```text
+global-solution-2026-2/
+│
+├── data/
+│   └── base_conhecimento.json     base de conhecimento (registros)
+│
+├── src/
+│   ├── main.py                    programa principal (menu no terminal)
+│   ├── carregador.py              leitura segura do JSON
+│   ├── base.py                    validação dos registros
+│   ├── busca.py                   busca por palavra-chave e por tema
+│   ├── navegacao.py               assuntos relacionados
+│   ├── saida.py                   Modelo 1 e Modelo 2 de resposta
+│   └── indicador.py               taxa de acerto
+│
+├── tests/
+│   ├── perguntas_teste.json       perguntas do indicador
+│   ├── test_unidades.py
+│   ├── test_integracao.py
+│   └── fixtures/base_teste.json   base fixa usada pelos testes
+│
+├── docs/
+│   ├── uso_ia.md
+│   ├── guia_registros.md
+│   └── resultado_indicador.md
+│
+├── CHANGELOG.md
+└── README.md
+```
+ 
+---
+ 
+# Como Executar
+ 
+Requisitos: Python 3.8 ou superior. Não há dependências externas.
+ 
+## Clone o projeto
+ 
+```bash
+git clone https://github.com/crew-olympus-ccob/global-solution-2026-2
+```
+ 
+## Entre na pasta
+ 
+```bash
+cd global-solution-2026-2
+```
+ 
+## Execute o sistema
+ 
+```bash
+python src/main.py
+```
+ 
+Siga o menu no terminal para buscar por pergunta ou escolher um tema.
+ 
+Atalhos sem menu:
+ 
+```bash
+python src/main.py --buscar "perdi meu cpf"
+python src/main.py --id 2 --modelo 1
+```
+ 
+## Testes e indicador
+ 
+```bash
+python -m unittest discover -s tests
+python src/indicador.py
+```
+ 
+O segundo comando mostra a taxa de acerto das buscas sobre `tests/perguntas_teste.json`. Para salvar o relatório: `python src/indicador.py --salvar docs/resultado_indicador.md`.
+ 
+---
+ 
+# Decisões Técnicas
 
 **Só a biblioteca padrão do Python.** Não há nada para instalar, o que facilita rodar em qualquer máquina do laboratório.
 
@@ -95,41 +159,9 @@ O Modelo 1 (Direto) ainda está em aberto: a função existe com uma versão mí
 - pergunta sobre um registro que ainda não existe fica fora da conta, a não ser que o programa responda com outro registro: aí é falso positivo e conta como erro.
 
 **Entradas do teclado.** Toda leitura passa por uma função que trata Enter vazio, Ctrl+C, Ctrl+D e textos com mais de 200 caracteres sem derrubar o programa. Os testes em `tests/test_integracao.py` rodam o programa de verdade com uma bateria de entradas estranhas.
-
-### 📢 Observações Gerais
-
-*Indique obrigatoriamente no campo abaixo a decisão da equipe quanto à participação na competição:*
-
-* **Participação na Competição:** [ ] Sim, aceitamos participar / [ ] Não vamos participar.
-* *Outras observações gerais (opcional):* Escreva aqui...
-
-## 🔧 Como executar o código
-
-**Pré-requisito:** Python 3.8 ou mais recente. Não há bibliotecas para instalar.
-
-```bash
-git clone https://github.com/crew-olympus-ccob/global-solution-2026-2.git
-cd global-solution-2026-2
-
-# programa interativo
-python src/main.py
-
-# atalhos (sem menu)
-python src/main.py --buscar "perdi meu cpf"
-python src/main.py --id 2 --modelo 1
-
-# testes automatizados (integração + entradas estranhas)
-python -m unittest discover -s tests -v
-
-# indicador: taxa de acerto
-python src/indicador.py
-python src/indicador.py --salvar docs/resultado_indicador.md
-```
-
-No Windows, use `py` no lugar de `python` se necessário.
-
+ 
 ---
-
-## 📋 Licença
-
-<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/fiap-tutoria/FIAP-PORTFOLIO-AI">TEMPLATE - FIAP PORTFÓLIO AI</a> por <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://fiap.com.br">FIAP</a> está licenciado sobre <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
+ 
+# Aviso
+ 
+As respostas são informativas e não oficiais. Em caso de dúvida, confirme sempre no canal oficial indicado na fonte de cada resposta.
