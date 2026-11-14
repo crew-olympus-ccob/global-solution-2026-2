@@ -48,7 +48,8 @@ global-solution-2026-2/
 │   ├── carregador.py
 │   ├── busca.py
 │   ├── fonte_aviso.py
-│   └── navegacao.py
+│   ├── navegacao.py
+│   └── tempo_consulta.py
 │
 ├── tests/
 │   └── perguntas_teste.json
@@ -84,6 +85,14 @@ O menu principal `src/sistema.py` ainda está em desenvolvimento. Quando estiver
 ```bash
 python src/sistema.py
 ```
+
+Enquanto o menu não está integrado, é possível executar as perguntas de teste já disponíveis e medir o tempo da busca por pergunta:
+
+```bash
+python src/tempo_consulta.py
+```
+
+O script mostra o ID esperado, o primeiro ID encontrado e o tempo em milissegundos. A medição considera a execução da busca; leitura de dados, digitação e exibição ficam fora do tempo. A função `medir_consulta` pode ser integrada ao menu posteriormente.
  
 ## Estrutura da base
 
