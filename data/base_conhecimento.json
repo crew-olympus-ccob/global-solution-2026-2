@@ -11,25 +11,25 @@
     "id": 2,
     "tema": "Documentação",
     "pergunta_chave": "Como tirar a primeira ou a segunda via do CPF?",
-    "conteudo": "O comprovante de inscrição no CPF é emitido de graça pelos canais digitais: site ou aplicativo da Receita Federal, portal ou aplicativo gov.br e portal e-CAC. Informe o número do CPF e a data de nascimento e baixe o comprovante em PDF. Quem não lembra o número do CPF precisa agendar atendimento presencial em uma unidade da Receita Federal. Desconfie de qualquer site ou pessoa que cobre para emitir o comprovante pelos canais digitais.",
-    "referencia": "https://www.gov.br/receitafederal/pt-br",
-    "data_verificacao": "2026-11-12"
+    "conteudo": "Para fazer a primeira inscrição no CPF, acesse o serviço Inscrever no CPF da Receita Federal e consulte os canais disponíveis para seu caso. A inscrição é gratuita nos canais da Receita, mas pode haver cobrança na rede conveniada. Se você já tem CPF, pode emitir gratuitamente o comprovante de inscrição pela internet, informando os dados solicitados. Caso não saiba o número, procure atendimento da Receita Federal em uma unidade ou por e-mail.",
+    "referencia": "https://www.gov.br/pt-br/servicos/inscrever-no-cpf | https://www.gov.br/pt-br/servicos/obter-cartao-de-cpf",
+    "data_verificacao": "2026-11-14"
   },
   {
     "id": 3,
     "tema": "Documentação",
     "pergunta_chave": "Como emitir o título de eleitor e consultar a situação eleitoral?",
-    "conteudo": "Use o Autoatendimento Eleitoral (Título Net), no portal do TSE, ou o aplicativo e-Título. Para consultar a situação, entre em Consultas, escolha Situação do título e informe o número do título, o CPF ou o nome completo com a data de nascimento. O sistema mostra se o título está regular, suspenso ou cancelado e se há multas. Se houver pendência, a regularização pode ser pedida online ou no cartório eleitoral, com documento oficial com foto e comprovante de residência. Perto das eleições o cadastro fica fechado para emissão e alterações, mas a consulta continua liberada.",
+    "conteudo": "Para solicitar o primeiro título, acesse o Autoatendimento Eleitoral do TSE e siga as orientações para alistamento. Para consultar a situação, escolha Consultas e Situação do título e informe os dados solicitados. O resultado indica se a inscrição está regular, suspensa ou cancelada; consulte eventuais multas separadamente em Débitos Eleitorais. Para regularização, siga as instruções do sistema ou procure o cartório eleitoral. Alguns serviços cadastrais ficam suspensos antes das eleições; consulte os prazos no TSE.",
     "referencia": "https://www.tse.jus.br/servicos-eleitorais/servicos/carta-de-servicos-ao-eleitor",
-    "data_verificacao": "2026-11-12"
+    "data_verificacao": "2026-11-14"
   },
   {
     "id": 4,
     "tema": "Documentação",
     "pergunta_chave": "Como acessar a Carteira de Trabalho Digital?",
-    "conteudo": "Quem tem CPF já tem a Carteira de Trabalho Digital, só é preciso habilitar o acesso. Baixe o aplicativo Carteira de Trabalho Digital (Android ou iOS) ou acesse pelo portal gov.br, entre com o CPF e a senha da conta gov.br e valide os dados. Para ver todas as informações, a conta gov.br precisa estar no nível prata ou ouro. O serviço é gratuito.",
+    "conteudo": "Quem tem CPF já tem a Carteira de Trabalho Digital, só é preciso habilitar o acesso. Baixe o aplicativo Carteira de Trabalho Digital (Android ou iOS) ou acesse pelo portal gov.br, entre com o CPF e a senha da conta gov.br e valide os dados. O serviço é gratuito. Se tiver dificuldade no acesso, consulte as orientações oficiais da Carteira de Trabalho Digital.",
     "referencia": "https://www.gov.br/pt-br/servicos/obter-a-carteira-de-trabalho",
-    "data_verificacao": "2026-11-12"
+    "data_verificacao": "2026-11-14"
   },
   {
     "id": 5,
@@ -78,5 +78,45 @@
     "conteudo": "Acesse o site consumidor.gov.br e faça login utilizando sua conta gov.br. Pesquise o nome da empresa reclamada na base de fornecedores cadastrados, preencha o relato do problema de forma objetiva, informe o pedido desejado (como estorno, troca ou cancelamento) e anexe documentos comprobatórios (notas fiscais, protocolos ou faturas). A empresa tem até 10 dias para analisar e responder à solicitação, e o consumidor dispõe de até 20 dias para avaliar a solução apresentada.",
     "referencia": "https://www.consumidor.gov.br/",
     "data_verificacao": "2026-11-12"
+  },
+  {
+    "id": 11,
+    "tema": "Serviços",
+    "pergunta_chave": "Como emitir ou consultar o Cartão Nacional de Saúde (Cartão do SUS)?",
+    "conteudo": "1) Acesse o aplicativo Meu SUS Digital ou meususdigital.saude.gov.br e entre com sua conta gov.br.\n2) Para consultar o número do Cartão Nacional de Saúde (CNS), acesse Perfil e selecione o ícone do cartão.\n- O aplicativo não emite um novo CNS. Para emissão ou alteração cadastral, procure presencialmente um estabelecimento de saúde.\n- Em caso de dificuldade, procure uma unidade de saúde ou a Ouvidoria do SUS pelo telefone 136.",
+    "referencia": "https://www.gov.br/saude/pt-br/composicao/seidigi/meususdigital/perguntas-e-respostas/cidadao/",
+    "data_verificacao": "2026-11-14"
+  },
+  {
+    "id": 12,
+    "tema": "Serviços",
+    "pergunta_chave": "Como conseguir medicamentos gratuitos pelo programa Farmácia Popular?",
+    "conteudo": "1) Procure uma farmácia credenciada com o selo Aqui Tem Farmácia Popular.\n2) Para retirar medicamentos, leve receita médica válida, do SUS ou particular, e documento oficial com foto e CPF.\n- Para fraldas geriátricas, destinadas a pessoas com 60 anos ou mais ou com deficiência, também é necessária prescrição, laudo ou atestado que comprove a necessidade.\n- A retirada por representante exige documentos específicos; consulte as regras oficiais.\n- Absorventes seguem os critérios do Programa Dignidade Menstrual e exigem autorização. Confira a lista e as regras atualizadas no Ministério da Saúde.",
+    "referencia": "https://www.gov.br/saude/pt-br/composicao/sectics/daf/farmacia-popular",
+    "data_verificacao": "2026-11-14"
+  },
+  {
+    "id": 13,
+    "tema": "Serviços",
+    "pergunta_chave": "Como tomar vacinas gratuitas do calendário nacional do SUS e quais documentos levar?",
+    "conteudo": "1) Consulte o Calendário Nacional de Vacinação para ver as vacinas indicadas para a idade e a situação (criança, adolescente, adulto, gestante, idoso).\n2) Vá a uma sala de vacina da Unidade Básica de Saúde (UBS) mais próxima.\n3) Leve documento de identificação com foto, CPF ou Cartão SUS e a caderneta de vacinação (física ou digital).\n4) Peça o registro das doses aplicadas na caderneta.\n- Todas as vacinas do calendário nacional são gratuitas no SUS.\n- Sem a caderneta, a equipe pode consultar o histórico no sistema; em caso de perda, é possível pedir segunda via na UBS.\n- O histórico também aparece no Meu SUS Digital (Minha Saúde > Vacinas).\n- Crianças devem ir acompanhadas do responsável.\n- Horários e vacinas disponíveis variam por município: confirme na UBS.",
+    "referencia": "Ministério da Saúde – Vacinação: https://www.gov.br/saude/pt-br/vacinacao | Instrução Normativa do Calendário Nacional de Vacinação 2026: https://www.gov.br/saude/pt-br/composicao/svsa/pni/calendario-tecnico/instrucao-normativa-que-instrui-o-calendario-nacional-de-vacinacao-2026",
+    "data_verificacao": "2026-11-13"
+  },
+  {
+    "id": 14,
+    "tema": "Serviços",
+    "pergunta_chave": "Como fazer ou atualizar a inscrição no Cadastro Único (CadÚnico) no CRAS?",
+    "conteudo": "1) Procure o CRAS ou o posto de atendimento do Cadastro Único do município; o cadastramento é gratuito e presencial. Famílias com renda de até meio salário mínimo por pessoa podem se cadastrar; famílias com renda maior também podem, quando o cadastro for necessário para programa ou serviço específico.\n2) Em geral, o responsável familiar deve levar CPF, documento com foto e comprovante de residência ou declaração de residência, além do CPF das demais pessoas da família. Há regras específicas para famílias indígenas, quilombolas e em situação de rua; consulte o posto de atendimento.\n3) Faça a entrevista e acompanhe o cadastro pelo aplicativo ou site do Cadastro Único.\n- Atualize os dados a cada dois anos ou quando houver mudança na família.\n- A inscrição não garante entrada automática em programas sociais.",
+    "referencia": "https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/ | https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/perguntas-frequentes-cadastro-unico/gst-acao-de-qualificacao-cadastral-de-2026/51-quais-os-documentos-sao",
+    "data_verificacao": "2026-11-14"
+  },
+  {
+    "id": 15,
+    "tema": "Serviços",
+    "pergunta_chave": "Como pedir isenção da taxa de inscrição em concursos públicos e vestibulares usando o CadÚnico?",
+    "conteudo": "1) Leia o edital e confira os requisitos, o prazo e os documentos para pedir isenção.\n2) Para concursos de cargos efetivos ou empregos permanentes federais, a Lei nº 13.656/2018 prevê isenção para integrantes de família inscrita no CadÚnico com renda mensal por pessoa de até meio salário mínimo, além de doadores de medula óssea nas condições da lei.\n3) Faça o pedido conforme o edital, acompanhe o resultado e, se necessário, consulte o prazo de recurso.\n- Concursos estaduais, municipais e vestibulares têm regras próprias: consulte a legislação e o edital aplicáveis.\n- Se a isenção for negada, observe as instruções e o prazo de pagamento previstos no edital.",
+    "referencia": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13656.htm",
+    "data_verificacao": "2026-11-14"
   }
 ]
