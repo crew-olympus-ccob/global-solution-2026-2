@@ -1,9 +1,5 @@
 # Uso de Inteligência Artificial no projeto
 
-> **Status:** rascunho da seção de Git/Admin/Integração. Cada integrante completa a
-> parte **"Uso por integrante"** com o que *de fato* fez com IA. Não inventem uso
-> que não houve, porque a banca pode perguntar.
-
 ## 1. Resumo
 
 Usamos ferramentas de IA generativa como **apoio** para estruturar o código,
@@ -14,8 +10,7 @@ oficiais, com referência e data de verificação em cada registro.
 
 | Ferramenta | Onde ajudou | Quem revisou |
 |---|---|---|
-| Claude (Anthropic) | Modelo 2 (`src/saida.py`), indicador (`src/indicador.py`), testes em `tests/`, rascunho deste arquivo | [nome do responsável] |
-| [outra ferramenta, se houver] | [uso] | [nome] |
+| Claude (Anthropic) | Modelo 2 (`src/saida.py`), indicador (`src/indicador.py`), testes em `tests/`, rascunho deste arquivo | Pedro Lima |
 
 ## 2. Como a IA apoiou a estruturação de prompts
 
@@ -89,11 +84,11 @@ em vez de pedidos genéricos. Exemplos reais do que foi pedido:
 
 | Integrante | Ferramenta | Para quê | O que foi conferido / alterado |
 |---|---|---|---|
-| Pedro Lima: Git/Admin, Integração, Modelo 2, Indicador | Claude | estrutura do código, testes, este documento | [preencher] |
-| [nome] | | | |
-| [nome] | | | |
-| [nome] | | | |
-| [nome] | | | |
+| Pedro Lima: Git/Admin, Integração, Modelo 2, Indicador | Claude | estrutura do código, testes, este documento | Rodei os testes no meu computador a cada entrega; revisei o código gerado e pedi para retirar comentários e as partes que pertenciam a outros integrantes; conferi os erros encontrados pelo indicador antes de reportar ao grupo. |
+| Gabriel Tavares: Dados e carregamento | | | |
+| Matheus Traiba: Busca e menu | | | |
+| Miguel Moreira: Respostas e erros | | | |
+| Lucas Carvalho: Revisão e indicadores | | | |
 
 ---
-*Última atualização: 12/11/2026.*
+*Última atualização: 16/11/2026.*
