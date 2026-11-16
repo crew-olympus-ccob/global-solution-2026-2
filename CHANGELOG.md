@@ -4,6 +4,14 @@ Todas as mudanças relevantes do projeto ficam registradas aqui, da mais recente
 
 ## 16/11/2026
 
+### Adicionado
+- **Matheus Traiba**: `src/sistema.py` com o menu interativo em loop (`while True`): busca por pergunta com tempo de consulta e outros resultados, busca por tema, troca entre Modelo 1 e Modelo 2, navegação entre assuntos relacionados e saída segura em entradas inválidas ou fim da entrada. Usa a busca por tema (`src/busca_tema.py`) e o Modelo 1 (`src/respostas.py`) assim que estiverem no repositório.
+- **Matheus Traiba**: 6 perguntas de teste em `tests/perguntas_teste.json` (ids 7, 8, 9, 10, 11 e 14), completando 12 perguntas.
+- **Matheus Traiba**: `docs/roteiro_video.md` com o roteiro e a ordem de gravação do vídeo.
+
+### Alterado
+- **Matheus Traiba**: README com a estrutura completa do repositório, o uso do menu e os comandos de teste.
+
 ### Alterado
 - **Pedro Lima**: `src/saida.py` com o Modelo 2 reconhecendo conteúdo em linhas (passos `1)` e itens `- `), como nos registros de Serviços, e aceitando a função de rodapé no parâmetro `rodape`, no mesmo formato do Modelo 1.
 - **Pedro Lima**: `tests/test_unidades.py` integrado à função `formatar_fonte_aviso()` e ao Modelo 1 (`formatar_modelo_1()`); `docs/resultado_indicador.md` atualizado com a base de 15 registros.
