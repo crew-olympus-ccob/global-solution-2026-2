@@ -2,6 +2,12 @@
 
 Todas as mudanças relevantes do projeto ficam registradas aqui, da mais recente para a mais antiga.
 
+## 16/11/2026
+
+### Alterado
+- **Pedro Lima**: `src/saida.py` com o Modelo 2 reconhecendo conteúdo em linhas (passos `1)` e itens `- `), como nos registros de Serviços, e aceitando a função de rodapé no parâmetro `rodape`, no mesmo formato do Modelo 1.
+- **Pedro Lima**: `tests/test_unidades.py` integrado à função `formatar_fonte_aviso()` e ao Modelo 1 (`formatar_modelo_1()`); `docs/resultado_indicador.md` atualizado com a base de 15 registros.
+
 ## 14/11/2026
 
 ### Adicionado

@@ -11,6 +11,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "src"))
 
 import busca  # noqa: E402
+import fonte_aviso  # noqa: E402
 import carregador  # noqa: E402
 import indicador  # noqa: E402
 import navegacao  # noqa: E402
@@ -104,11 +105,19 @@ class TestBuscaPorTema(unittest.TestCase):
 @unittest.skipUnless(TEM_RESPOSTAS, "aguardando src/respostas.py (Modelo 1)")
 class TestModelo1(unittest.TestCase):
     def test_responde_todos_os_registros(self):
-        from respostas import modelo_1_direto_tecnico
+        from respostas import formatar_modelo_1
         for r in _carregar():
-            texto = modelo_1_direto_tecnico(r)
+            texto = formatar_modelo_1(r, rodape=fonte_aviso.formatar_fonte_aviso)
             self.assertIsInstance(texto, str)
-            self.assertTrue(texto.strip(), r["id"])
+            self.assertIn("Fonte:", texto, r["id"])
+
+
+class TestFonteEAviso(unittest.TestCase):
+    def test_modelo_2_usa_a_funcao_do_lucas(self):
+        for r in _carregar():
+            texto = saida.modelo_2_educativo(r, None, rodape=fonte_aviso.formatar_fonte_aviso)
+            self.assertIn("Fonte:", texto, r["id"])
+            self.assertIn(fonte_aviso.AVISO, texto, r["id"])
 
 
 class TestModelo2(unittest.TestCase):
@@ -147,6 +156,27 @@ class TestModelo2(unittest.TestCase):
         self.assertIn("Fonte: X\nAviso: Y", txt)
         self.assertNotIn("Fonte:", saida.modelo_2_educativo(self.cpf))
 
+    def test_conteudo_em_linhas_numeradas(self):
+        reg = dict(self.cpf, conteudo="Texto de abertura.\n1) Primeiro passo.\n2) Segundo passo.\n- Observação útil.\n- Desconfie de cobranças.")
+        txt = saida.modelo_2_educativo(reg)
+        self.assertIn("EM RESUMO", txt)
+        self.assertIn("1. Primeiro passo.", txt)
+        self.assertIn("2. Segundo passo.", txt)
+        self.assertIn("BOM SABER", txt)
+        self.assertIn("- Observação útil.", txt)
+        self.assertIn("! Desconfie de cobranças.", txt)
+        self.assertNotIn("1)", txt)
+
+    def test_registros_de_servicos_tem_passo_a_passo(self):
+        for r in _carregar():
+            if any(l.strip()[:2] in ("1)", "2)") for l in r["conteudo"].splitlines()):
+                self.assertIn("PASSO A PASSO", saida.modelo_2_educativo(r), r["id"])
+
+    def test_rodape_tem_prioridade(self):
+        txt = saida.modelo_2_educativo(self.cpf, None, "ignorado", rodape=lambda r: f"RODAPE {r['id']}")
+        self.assertIn("RODAPE 2", txt)
+        self.assertNotIn("ignorado", txt)
+
     def test_veja_tambem_usa_navegacao(self):
         txt = saida.modelo_2_educativo(self.cpf, self.base)
         self.assertIn("[1]", txt)
@@ -160,7 +190,8 @@ class TestModelo2(unittest.TestCase):
     def test_todos_os_registros_reais(self):
         base = _carregar()
         for r in base:
-            self.assertIn("EM RESUMO", saida.modelo_2_educativo(r, base))
+            txt = saida.modelo_2_educativo(r, base)
+            self.assertTrue("EM RESUMO" in txt or "PASSO A PASSO" in txt, r["id"])
 
 
 class TestValidacaoNavegacao(unittest.TestCase):

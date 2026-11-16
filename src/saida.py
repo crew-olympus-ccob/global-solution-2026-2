@@ -29,10 +29,32 @@ def _eh_alerta(frase: str) -> bool:
     return frase.lower().startswith(INICIO_DE_ALERTA)
 
 
-def modelo_2_educativo(registro: dict, base: list[dict] | None = None, fonte_e_aviso: str = "") -> str:
-    frases = dividir_frases(registro["conteudo"])
-    alertas = [f for f in frases if _eh_alerta(f)]
+PASSO_NUMERADO = re.compile(r"^\d{1,2}\)\s*")
+
+
+def separar_conteudo(texto: str) -> tuple[list[str], list[str], list[str]]:
+    linhas = [l.strip() for l in texto.splitlines() if l.strip()]
+    if not any(PASSO_NUMERADO.match(l) or l.startswith("- ") for l in linhas):
+        return dividir_frases(texto), [], []
+    corrido, passos, itens = [], [], []
+    for linha in linhas:
+        if PASSO_NUMERADO.match(linha):
+            passos.append(PASSO_NUMERADO.sub("", linha))
+        elif linha.startswith("- "):
+            itens.append(linha[2:].strip())
+        else:
+            corrido += dividir_frases(linha)
+    return corrido, passos, itens
+
+
+def modelo_2_educativo(registro: dict, base: list[dict] | None = None, fonte_e_aviso: str = "",
+                       rodape=None) -> str:
+    if rodape is not None:
+        fonte_e_aviso = rodape(registro)
+    frases, passos_do_texto, itens = separar_conteudo(registro["conteudo"])
+    alertas = [f for f in frases + itens if _eh_alerta(f)]
     normais = [f for f in frases if not _eh_alerta(f)]
+    observacoes = [i for i in itens if not _eh_alerta(i)]
     if registro.get("alerta"):
         alertas.insert(0, registro["alerta"])
 
@@ -48,13 +70,17 @@ def modelo_2_educativo(registro: dict, base: list[dict] | None = None, fonte_e_a
     if resumo:
         blocos += ["", "EM RESUMO", _quebrar(resumo, "  ")]
 
-    passos = registro.get("passos") or []
+    passos = registro.get("passos") or passos_do_texto
     if passos:
         blocos += ["", "PASSO A PASSO"] + [_numerado(n, p) for n, p in enumerate(passos, 1)]
         if resto:
             blocos += ["", "ENTENDA MELHOR", _quebrar(" ".join(resto), "  ")]
     elif resto:
         blocos += ["", "COMO FAZER"] + [_numerado(n, p) for n, p in enumerate(resto, 1)]
+
+    if observacoes:
+        blocos += ["", "BOM SABER"] + [textwrap.fill(o, width=LARGURA, initial_indent="  - ", subsequent_indent="    ")
+                                     for o in observacoes]
 
     if alertas:
         blocos += ["", "ATENÇÃO"] + [textwrap.fill(a, width=LARGURA, initial_indent="  ! ", subsequent_indent="    ")
