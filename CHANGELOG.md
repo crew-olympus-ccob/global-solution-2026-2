@@ -2,6 +2,16 @@
 
 Todas as mudanças relevantes do projeto ficam registradas aqui, da mais recente para a mais antiga.
 
+## 14/11/2026
+
+### Adicionado
+- **Miguel Moreira e Lucas Carvalho**: reunião dos cinco registros de Serviços com os demais, totalizando 15 registros.
+- **Lucas Carvalho**: revisão das orientações e referências em `docs/revisao_base.md` e função de fonte e aviso em `src/fonte_aviso.py`.
+- **Lucas Carvalho**: `src/tempo_consulta.py` para medir consultas e executar as perguntas de teste disponíveis.
+
+### Alterado
+- **Lucas Carvalho**: README com o formato da base, estado do menu e uso da medição de tempo.
+
 ## 13/11/2026
 
 ### Adicionado

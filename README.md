@@ -26,13 +26,13 @@ Cidadãos em geral, principalmente quem tem pouca familiaridade com serviços di
  
 ## Temas abordados
  
-A base de conhecimento tem 15 registros, divididos em três temas:
+A base reúne 15 registros em três temas. As orientações e referências devem ser revisadas antes da entrega:
  
 | Tema | Assuntos |
 |---|---|
 | Documentação | Carteira de Identidade Nacional (CIN), CPF, título de eleitor, Carteira de Trabalho Digital e certidão de antecedentes criminais |
 | Direitos do Consumidor | Direito de arrependimento, garantia legal, cobrança indevida, cancelamento de serviços e reclamação no consumidor.gov.br |
-| Saúde Pública e Serviços Comunitários | Cartão do SUS, Farmácia Popular, vacinação, CadÚnico e isenção de taxas em concursos |
+| Serviços | Cartão do SUS, Farmácia Popular, vacinação, CadÚnico e isenção de taxas em concursos |
  
 ---
  
@@ -45,15 +45,16 @@ global-solution-2026-2/
 │   └── base_conhecimento.json
 │
 ├── src/
-│   ├── sistema.py
 │   ├── carregador.py
-│   └── navegacao.py
+│   ├── busca.py
+│   ├── fonte_aviso.py
+│   ├── navegacao.py
+│   └── tempo_consulta.py
 │
 ├── tests/
-│   └── perguntas_teste_1.json
+│   └── perguntas_teste.json
 │
 ├── docs/
-│   └── uso_ia.md
 │
 ├── CHANGELOG.md
 └── README.md
@@ -77,13 +78,49 @@ git clone https://github.com/crew-olympus-ccob/global-solution-2026-2
 cd global-solution-2026-2
 ```
  
-## Execute o sistema
+## Execução
+
+O menu principal `src/sistema.py` ainda está em desenvolvimento. Quando estiver integrado, o comando planejado será:
  
 ```bash
 python src/sistema.py
 ```
+
+Enquanto o menu não está integrado, é possível executar as perguntas de teste já disponíveis e medir o tempo da busca por pergunta:
+
+```bash
+python src/tempo_consulta.py
+```
+
+O script mostra o ID esperado, o primeiro ID encontrado e o tempo em milissegundos. A medição considera a execução da busca; leitura de dados, digitação e exibição ficam fora do tempo. A função `medir_consulta` pode ser integrada ao menu posteriormente.
  
-Siga o menu no terminal para buscar por pergunta ou escolher um tema.
+## Estrutura da base
+
+O arquivo `data/base_conhecimento.json` contém uma lista de objetos. Cada registro possui:
+
+| Campo | Conteúdo |
+|---|---|
+| `id` | Identificador numérico do registro |
+| `tema` | Categoria da orientação |
+| `pergunta_chave` | Pergunta principal que identifica o assunto |
+| `conteudo` | Orientação apresentada ao cidadão |
+| `referencia` | Endereço da fonte consultada |
+| `data_verificacao` | Data de verificação, no formato `AAAA-MM-DD` |
+
+Por exemplo, um registro é representado assim:
+
+```json
+{
+  "id": 1,
+  "tema": "Documentação",
+  "pergunta_chave": "Como emitir a Carteira de Identidade Nacional?",
+  "conteudo": "Consulte as orientações do órgão de identificação do seu estado.",
+  "referencia": "https://www.gov.br/identidade",
+  "data_verificacao": "2026-11-12"
+}
+```
+
+O exemplo ilustra o formato; consulte a base para a orientação completa. As referências podem reunir mais de um endereço, separados por ` | `.
  
 ---
  
