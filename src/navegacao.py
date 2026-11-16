@@ -23,9 +23,13 @@ def escolher_relacionado(base, registro):
     print("  0. Voltar ao menu")
 
     while True:
-        escolha = input("Escolha uma opção: ").strip()
+        try:
+            escolha = input("Escolha uma opção: ").strip()
+        except EOFError:
+            print()
+            return None
         if escolha == "0":
             return None
-        if escolha.isdigit() and 1 <= int(escolha) <= len(relacionados):
+        if escolha.isdecimal() and 1 <= int(escolha) <= len(relacionados):
             return relacionados[int(escolha) - 1]
         print("Opção inválida. Digite um dos números da lista.")
