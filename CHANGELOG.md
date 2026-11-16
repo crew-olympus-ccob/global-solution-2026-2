@@ -17,6 +17,10 @@ Todas as mudanças relevantes do projeto ficam registradas aqui, da mais recente
 - **Pedro Lima**: `tests/test_unidades.py` integrado à função `formatar_fonte_aviso()` e ao Modelo 1 (`formatar_modelo_1()`); `docs/resultado_indicador.md` atualizado com a base de 15 registros.
 - **Pedro Lima**: `tests/test_miguel.py` lendo os registros de Serviços de `data/base_conhecimento.json` e comparando a data e o link com o próprio registro, em vez dos valores fixos do antigo `data/servicos.json`.
 - **Pedro Lima**: integração da busca por tema, do Modelo 1 e dos cenários de erro do Miguel em uma branch nova a partir da main, sem apagar arquivos dos colegas (PR #9); testes de integração do menu (`src/sistema.py`) passando com entradas estranhas.
+- **Pedro Lima**: `docs/uso_ia.md` finalizado, com a tabela de uso por integrante para cada um preencher (PR #10).
+- **Pedro Lima**: correção em `src/navegacao.py` para entradas com ² e Ctrl+D, aprovada pelo Gabriel Tavares (PR #11); testes de validação da navegação passando sem falhas esperadas.
+- **Pedro Lima**: validação com o indicador e as entradas estranhas; erros encontrados na busca (respostas fora do tema e siglas ignoradas) e na navegação reportados aos responsáveis.
+- **Pedro Lima**: `docs/resultado_indicador.md` atualizado com a busca por tema e o Modelo 1 integrados: taxa de acerto de 81,0% (51 de 63 casos), com 100% na busca por tema.
 
 ## 14/11/2026
 
@@ -43,6 +47,9 @@ Todas as mudanças relevantes do projeto ficam registradas aqui, da mais recente
 - **Pedro Lima**: `docs/uso_ia.md` com a explicação de como ferramentas de IA apoiaram a estruturação de prompts e testes.
 - **Pedro Lima**: `docs/resultado_indicador.md` com o relatório do indicador.
 - **Pedro Lima**: `.gitignore` do repositório.
+
+### Alterado
+- **Pedro Lima**: indicador e testes passam a usar a busca do Traiba (`buscar_por_pergunta()`), no lugar da busca provisória.
 
 ## 12/11/2026
 
