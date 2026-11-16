@@ -9,6 +9,8 @@ STOPWORDS = {
     "uma", "e", "ou", "se", "ao", "aos", "pelo", "pela", "sobre", "fazer", "ter"
 }
 
+PONTUACAO_MINIMA = 2
+
 def normalizar_texto(texto: str) -> str:
     """Remove acentos, pontuação e converte para minúsculas."""
     texto = texto.lower().strip()
@@ -57,7 +59,7 @@ def buscar_por_pergunta(pergunta: str, base_dados: list) -> list:
             if raiz in conteudo_reg:
                 pontuacao += 1  # Peso menor se aparecer apenas no texto
 
-        if pontuacao > 0:
+        if pontuacao >= PONTUACAO_MINIMA:
             resultados_pontuados.append({
                 "pontuacao": pontuacao,
                 "registro": registro
