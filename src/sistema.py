@@ -1,7 +1,10 @@
 import sys
+import textwrap
+import unicodedata
 
 from busca import buscar_por_pergunta
 from carregador import carregar_base
+from erros import AmbiguidadeError, ErroDeConsulta, TemaInexistenteError, escolher_opcao
 from fonte_aviso import formatar_fonte_aviso
 from navegacao import buscar_relacionados
 from saida import modelo_2_educativo
@@ -20,6 +23,57 @@ except ImportError:
 MAX_ENTRADA = 200
 MAX_ALTERNATIVAS = 3
 NOMES_MODELO = {1: "Direto e Técnico", 2: "Educativo e Detalhado"}
+MAX_TENTATIVAS = 3
+
+# Nome completo, resumo e fontes de cada tema. A chave é o início do nome do
+# tema no JSON, sem acento e em minúsculas, então funciona tanto com
+# "Serviços" quanto com "Saúde Pública e Serviços Comunitários".
+TEMAS_INFO = [
+    ("documentacao", "Documentação e Identificação Civil",
+     "CIN/RG, CPF, título de eleitor, Carteira de Trabalho Digital e antecedentes criminais.",
+     "gov.br, TSE e Receita Federal"),
+    ("direitos", "Direitos do Consumidor",
+     "Arrependimento em compras online, garantia, cobrança indevida, cancelamento de "
+     "internet/telefone e reclamação no Consumidor.gov.br.",
+     "Código de Defesa do Consumidor (Lei nº 8.078/1990), Procon e Consumidor.gov.br"),
+    ("saude", "Saúde Pública e Serviços Comunitários",
+     "Cartão do SUS, Farmácia Popular, vacinação, CadÚnico no CRAS e isenção de taxas em "
+     "concursos e vestibulares.",
+     "Ministério da Saúde, Ministério do Desenvolvimento Social e gov.br"),
+    ("servicos", "Saúde Pública e Serviços Comunitários",
+     "Cartão do SUS, Farmácia Popular, vacinação, CadÚnico no CRAS e isenção de taxas em "
+     "concursos e vestibulares.",
+     "Ministério da Saúde, Ministério do Desenvolvimento Social e gov.br"),
+]
+
+
+def normalizar(texto):
+    """Minúsculas, sem acentos e com espaços simples (para comparar nomes)."""
+    texto = unicodedata.normalize("NFKD", str(texto))
+    texto = "".join(c for c in texto if not unicodedata.combining(c))
+    return " ".join(texto.lower().split())
+
+
+def info_tema(tema):
+    """Devolve (nome completo, resumo, fontes) de um tema da base."""
+    norm = normalizar(tema)
+    for chave, nome, resumo, fontes in TEMAS_INFO:
+        if norm.startswith(chave):
+            return nome, resumo, fontes
+    return tema, "", ""
+
+
+def nome_tema(tema):
+    return info_tema(tema)[0]
+
+
+def temas_da_base(base):
+    """Temas na ordem em que aparecem na base (Documentação = 1, Direitos = 2...)."""
+    temas = []
+    for registro in sorted(base, key=lambda r: r.get("id", 0)):
+        if registro.get("tema") and registro["tema"] not in temas:
+            temas.append(registro["tema"])
+    return temas
 
 
 class Saida(Exception):
@@ -67,7 +121,7 @@ def proximos_assuntos(registro, base, alternativas):
             print(f"  {len(opcoes)}. {r['pergunta_chave']}")
     relacionados = [r for r in buscar_relacionados(base, registro) if r not in opcoes]
     if relacionados:
-        print(f"\nOutros assuntos de {registro['tema']}:")
+        print(f"\nOutros assuntos de {nome_tema(registro['tema'])}:")
         for r in relacionados:
             opcoes.append(r)
             print(f"  {len(opcoes)}. {r['pergunta_chave']}")
@@ -101,38 +155,76 @@ def opcao_pergunta(base, modelo):
     explorar(resultados[0], base, modelo, resultados[1:1 + MAX_ALTERNATIVAS])
 
 
+def mostrar_temas(base, temas):
+    """Lista os temas com nome completo, quantidade de assuntos, resumo e fontes."""
+    print("\nBUSCAR POR TEMA")
+    for numero, tema in enumerate(temas, start=1):
+        nome, resumo, fontes = info_tema(tema)
+        quantidade = sum(1 for r in base if r.get("tema") == tema)
+        print(f"\n  {numero}. {nome} ({quantidade} assuntos)")
+        if resumo:
+            print(textwrap.fill(resumo, width=72, initial_indent="     ", subsequent_indent="     "))
+        if fontes:
+            print(textwrap.fill(f"Fontes: {fontes}", width=72, initial_indent="     ",
+                                subsequent_indent="             "))
+    print("\n  0. Voltar ao menu")
+
+
+def escolher_tema(base, temas):
+    """Pede o tema por número, nome ou palavra relacionada. Devolve o tema ou None."""
+    for _ in range(MAX_TENTATIVAS):
+        entrada = ler("\nDigite o número, o nome do tema ou uma palavra (ex.: vacina, cpf, procon): ")
+        if not entrada or entrada == "0":
+            return None
+        if entrada.isascii() and entrada.isdecimal() and 1 <= int(entrada) <= len(temas):
+            return temas[int(entrada) - 1]
+        for tema in temas:
+            if normalizar(entrada) == normalizar(nome_tema(tema)):
+                return tema
+        try:
+            tema, _ = buscar_por_tema(base, entrada)
+            return tema
+        except AmbiguidadeError as erro:
+            print(f"\n\"{entrada}\" aparece em mais de um tema. Qual deles você quer?")
+            indice = escolher_opcao([nome_tema(o) for o in erro.opcoes], entrada_fn=ler)
+            return None if indice is None else erro.opcoes[indice]
+        except TemaInexistenteError as erro:
+            mensagem = f"Não encontrei um tema para \"{entrada}\"."
+            if erro.sugestao:
+                mensagem += f" Você quis dizer \"{nome_tema(erro.sugestao)}\"?"
+            print(mensagem + f" Digite um número de 1 a {len(temas)}.")
+        except ErroDeConsulta as erro:
+            print(erro.mensagem)
+    print("Muitas tentativas inválidas. Voltando ao menu.")
+    return None
+
+
 def opcao_tema(base, modelo):
     """Busca por tema: escolhe o tema e depois o assunto."""
     if buscar_por_tema is None:
         print("\nA busca por tema ainda está em desenvolvimento (src/busca_tema.py).")
         return
-    temas = sorted({r["tema"] for r in base})
-    print("\nTemas disponíveis:")
-    for numero, tema in enumerate(temas, start=1):
-        print(f"  {numero}. {tema}")
-    print("  0. Voltar ao menu")
-    entrada = ler("Digite o número ou o nome do tema: ")
-    if not entrada or entrada == "0":
+    temas = temas_da_base(base)
+    mostrar_temas(base, temas)
+    tema = escolher_tema(base, temas)
+    if tema is None:
         return
-    if entrada.isascii() and entrada.isdecimal() and 1 <= int(entrada) <= len(temas):
-        entrada = temas[int(entrada) - 1]
-    try:
-        tema, registros = buscar_por_tema(base, entrada)
-    except Exception:
-        print("Tema não encontrado. Escolha um dos temas da lista.")
-        return
+    registros = sorted((r for r in base if r.get("tema") == tema), key=lambda r: r.get("id", 0))
     if not registros:
         print("Esse tema não tem assuntos cadastrados.")
         return
-    print(f"\nAssuntos de {tema}:")
-    for numero, r in enumerate(registros, start=1):
-        print(f"  {numero}. {r['pergunta_chave']}")
-    print("  0. Voltar ao menu")
-    escolha = ler_numero("Escolha um assunto: ", len(registros))
-    if escolha is None:
-        print("Opção inválida. Voltando ao menu.")
-        return
-    if escolha:
+    while True:
+        print(f"\n{nome_tema(tema).upper()}")
+        for numero, r in enumerate(registros, start=1):
+            print(textwrap.fill(r["pergunta_chave"], width=72, initial_indent=f"  {numero}. ",
+                                subsequent_indent="     "))
+        print("  0. Voltar ao menu principal")
+        escolha = ler_numero("Escolha um assunto: ", len(registros))
+        if escolha is None:
+            print(f"Opção inválida. Digite um número de 0 a {len(registros)}.")
+            continue
+        if escolha == 0:
+            return
         explorar(registros[escolha - 1], base, modelo)
 
 
@@ -151,7 +243,8 @@ def menu(base):
     modelo = 1 if formatar_modelo_1 is not None else 2
     print("=" * 72)
     print("CitizenTech: orientação ao cidadão")
-    print(f"{len(base)} orientações sobre documentação, direitos do consumidor e serviços.")
+    nomes = [nome_tema(t) for t in temas_da_base(base)]
+    print(f"{len(base)} orientações sobre: " + ", ".join(nomes) + ".")
     print("=" * 72)
     while True:
         print("\nMENU PRINCIPAL")
