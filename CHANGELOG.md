@@ -15,6 +15,8 @@ Todas as mudanças relevantes do projeto ficam registradas aqui, da mais recente
 ### Alterado
 - **Pedro Lima**: `src/saida.py` com o Modelo 2 reconhecendo conteúdo em linhas (passos `1)` e itens `- `), como nos registros de Serviços, e aceitando a função de rodapé no parâmetro `rodape`, no mesmo formato do Modelo 1.
 - **Pedro Lima**: `tests/test_unidades.py` integrado à função `formatar_fonte_aviso()` e ao Modelo 1 (`formatar_modelo_1()`); `docs/resultado_indicador.md` atualizado com a base de 15 registros.
+- **Pedro Lima**: `tests/test_miguel.py` lendo os registros de Serviços de `data/base_conhecimento.json` e comparando a data e o link com o próprio registro, em vez dos valores fixos do antigo `data/servicos.json`.
+- **Pedro Lima**: integração da busca por tema, do Modelo 1 e dos cenários de erro do Miguel em uma branch nova a partir da main, sem apagar arquivos dos colegas (PR #9); testes de integração do menu (`src/sistema.py`) passando com entradas estranhas.
 
 ## 14/11/2026
 
