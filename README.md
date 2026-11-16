@@ -42,19 +42,30 @@ A base reúne 15 registros em três temas. As orientações e referências devem
 global-solution-2026-2/
 │
 ├── data/
-│   └── base_conhecimento.json
+│   └── base_conhecimento.json     # base com 15 registros em 3 temas
 │
 ├── src/
-│   ├── carregador.py
-│   ├── busca.py
-│   ├── fonte_aviso.py
-│   ├── navegacao.py
-│   └── tempo_consulta.py
+│   ├── sistema.py                 # menu principal em loop (ponto de entrada)
+│   ├── carregador.py              # leitura segura do JSON
+│   ├── busca.py                   # busca por pergunta livre
+│   ├── navegacao.py               # assuntos relacionados
+│   ├── saida.py                   # Modelo 2: Educativo e Detalhado
+│   ├── fonte_aviso.py             # fonte, data de verificação e aviso
+│   ├── tempo_consulta.py          # medição do tempo de consulta
+│   └── indicador.py               # taxa de acerto das buscas
 │
 ├── tests/
-│   └── perguntas_teste.json
+│   ├── perguntas_teste.json       # 12 perguntas de teste com o id esperado
+│   ├── perguntas_extras.json      # casos adicionais do indicador
+│   ├── fixtures/base_teste.json
+│   ├── test_unidades.py
+│   └── test_integracao.py
 │
 ├── docs/
+│   ├── uso_ia.md
+│   ├── revisao_base.md
+│   ├── resultado_indicador.md
+│   └── roteiro_video.md
 │
 ├── CHANGELOG.md
 └── README.md
@@ -80,20 +91,38 @@ cd global-solution-2026-2
  
 ## Execução
 
-O menu principal `src/sistema.py` ainda está em desenvolvimento. Quando estiver integrado, o comando planejado será:
- 
+A partir da raiz do projeto:
+
 ```bash
 python src/sistema.py
 ```
 
-Enquanto o menu não está integrado, é possível executar as perguntas de teste já disponíveis e medir o tempo da busca por pergunta:
+O menu principal oferece:
+
+| Opção | O que faz |
+|---|---|
+| 1. Fazer uma pergunta | Busca por pergunta livre. Mostra a resposta mais provável, o tempo da consulta e outros resultados parecidos para escolher |
+| 2. Buscar por tema | Lista os temas e, dentro do tema escolhido, os assuntos disponíveis |
+| 3. Trocar formato da resposta | Alterna entre o Modelo 1 (Direto e Técnico) e o Modelo 2 (Educativo e Detalhado) |
+| 0. Sair | Encerra o programa |
+
+Depois de cada resposta, o menu oferece os assuntos relacionados do mesmo tema. Toda resposta termina com a fonte, a data de verificação e o aviso de não-oficialidade. Entradas vazias, letras no lugar de números, números fora da lista e o fim da entrada (Ctrl+D ou Ctrl+Z) são tratados sem encerrar o programa com erro.
+
+Para medir o tempo de busca das perguntas de teste e calcular a taxa de acerto:
 
 ```bash
 python src/tempo_consulta.py
+python src/indicador.py
 ```
 
-O script mostra o ID esperado, o primeiro ID encontrado e o tempo em milissegundos. A medição considera a execução da busca; leitura de dados, digitação e exibição ficam fora do tempo. A função `medir_consulta` pode ser integrada ao menu posteriormente.
- 
+A medição de tempo considera apenas a execução da busca; leitura de dados, digitação e exibição ficam fora do tempo.
+
+Para rodar os testes automatizados:
+
+```bash
+python -m unittest discover -s tests
+```
+
 ## Estrutura da base
 
 O arquivo `data/base_conhecimento.json` contém uma lista de objetos. Cada registro possui:
