@@ -2,6 +2,12 @@
 
 Todas as mudanças relevantes do projeto ficam registradas aqui, da mais recente para a mais antiga.
 
+## 17/11/2026
+
+### Alterado
+- **Lucas Carvalho**: revisão do README com a estrutura integrada, instruções de uso, resultados atuais dos testes e limitações da busca.
+- **Lucas Carvalho**: registro do uso do Codex na revisão da base, documentação, medição e testes em `docs/uso_ia.md`.
+
 ## 16/11/2026
 
 ### Adicionado

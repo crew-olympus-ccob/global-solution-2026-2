@@ -48,7 +48,10 @@ global-solution-2026-2/
 │   ├── sistema.py                 # menu principal em loop (ponto de entrada)
 │   ├── carregador.py              # leitura segura do JSON
 │   ├── busca.py                   # busca por pergunta livre
+│   ├── busca_tema.py              # busca por tema ou palavra relacionada
+│   ├── erros.py                   # erros e escolha em caso de ambiguidade
 │   ├── navegacao.py               # assuntos relacionados
+│   ├── respostas.py               # Modelo 1: Direto e Técnico
 │   ├── saida.py                   # Modelo 2: Educativo e Detalhado
 │   ├── fonte_aviso.py             # fonte, data de verificação e aviso
 │   ├── tempo_consulta.py          # medição do tempo de consulta
@@ -59,13 +62,13 @@ global-solution-2026-2/
 │   ├── perguntas_extras.json      # casos adicionais do indicador
 │   ├── fixtures/base_teste.json
 │   ├── test_unidades.py
-│   └── test_integracao.py
+│   ├── test_integracao.py
+│   └── test_miguel.py
 │
 ├── docs/
 │   ├── uso_ia.md
 │   ├── revisao_base.md
-│   ├── resultado_indicador.md
-│   └── roteiro_video.md
+│   └── resultado_indicador.md
 │
 ├── CHANGELOG.md
 └── README.md
@@ -75,7 +78,7 @@ global-solution-2026-2/
  
 # Como Executar
  
-Requisitos: Python 3.8 ou superior. Não há dependências externas.
+Requisitos informados pela equipe: Python 3.8 ou superior. Não há dependências externas. A execução e os testes desta revisão foram realizados com Python 3.13.5; as demais versões não foram verificadas nesta revisão.
  
 ## Clone o projeto
  
@@ -108,6 +111,8 @@ O menu principal oferece:
 
 Depois de cada resposta, o menu oferece os assuntos relacionados do mesmo tema. Toda resposta termina com a fonte, a data de verificação e o aviso de não-oficialidade. Entradas vazias, letras no lugar de números, números fora da lista e o fim da entrada (Ctrl+D ou Ctrl+Z) são tratados sem encerrar o programa com erro.
 
+Por exemplo, escolha **1**, digite `Como acessar a Carteira de Trabalho Digital?` e confira a resposta. Para navegar por categoria, escolha **2**, informe um tema e selecione um assunto. A opção **3** alterna o formato das respostas.
+
 Para medir o tempo de busca das perguntas de teste e calcular a taxa de acerto:
 
 ```bash
@@ -122,6 +127,20 @@ Para rodar os testes automatizados:
 ```bash
 python -m unittest discover -s tests
 ```
+
+## Resultados e limitações
+
+Na revisão de 17/11/2026, os **61 testes automatizados passaram**. O indicador avaliou **63 casos**, com **53 acertos (84,1%)**: 48 de 58 casos por pergunta (82,8%) e 5 de 5 por tema (100%). Para as perguntas, o cálculo considera somente o primeiro resultado retornado; nos casos que esperam ausência de resposta, retornar algum resultado conta como erro. Casos pendentes são excluídos da taxa.
+
+Esses números descrevem apenas o conjunto de testes disponível. A busca usa correspondência de palavras e pode interpretar sinônimos de forma incorreta ou sugerir assuntos fora da intenção do usuário. Por exemplo, `cancelar compra` não retornou o assunto esperado nessa execução. O sistema mostra alternativas e permite navegar pelos temas; sempre confira a pergunta exibida e a fonte oficial antes de seguir a orientação.
+
+O arquivo `docs/resultado_indicador.md` registra uma execução anterior, de 16/11/2026; para obter os resultados atuais, execute novamente `python src/indicador.py`. Para atualizar o relatório, use:
+
+```bash
+python src/indicador.py --salvar docs/resultado_indicador.md
+```
+
+O tempo mostrado pelo sistema se refere à busca por pergunta e varia conforme a máquina. A busca por tema não é cronometrada pelo menu. No script `tempo_consulta.py`, são executadas as 12 perguntas de `tests/perguntas_teste.json`.
 
 ## Estrutura da base
 
