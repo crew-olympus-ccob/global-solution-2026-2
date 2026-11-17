@@ -3,14 +3,14 @@
 ## 1. Resumo
 
 Usamos ferramentas de IA generativa como **apoio** para estruturar o código,
-os prompts de trabalho e, principalmente, os **testes**. A IA **não** foi usada
-como fonte das orientações ao cidadão: todo o conteúdo da base
-(`data/base_conhecimento.json`) foi escrito pelos integrantes a partir de fontes
-oficiais, com referência e data de verificação em cada registro.
+os prompts de trabalho, os testes e a documentação. A IA também ajudou na
+revisão e na redação de ajustes em orientações da base. As fontes oficiais
+consultadas estão registradas na base e em `docs/revisao_base.md`.
 
-| Ferramenta | Onde ajudou | Quem revisou |
-|---|---|---|
-| Claude (Anthropic) | Modelo 2 (`src/saida.py`), indicador (`src/indicador.py`), testes em `tests/`, rascunho deste arquivo | Pedro Lima |
+| Ferramenta         | Onde ajudou                                                                                                     | Quem revisou   |
+| ------------------ | --------------------------------------------------------------------------------------------------------------- | -------------- |
+| Claude (Anthropic) | Modelo 2 (`src/saida.py`), indicador (`src/indicador.py`), testes em `tests/`, rascunho deste arquivo           | Pedro Lima     |
+| Codex (OpenAI)     | Revisão da base e das referências, documentação, função de fonte e aviso, medição do tempo e execução de testes | Lucas Carvalho |
 
 ## 2. Como a IA apoiou a estruturação de prompts
 
@@ -18,21 +18,24 @@ Escrevemos os pedidos à IA com **contexto, restrições e critério de pronto**
 em vez de pedidos genéricos. Exemplos reais do que foi pedido:
 
 1. **Testar a parte de cada integrante**
+
    > "Projeto em Python, só biblioteca padrão, dividido entre 5 pessoas. A base é
    > um JSON com id, tema, pergunta_chave, conteudo, referencia e
    > data_verificacao. Escreva testes que usem as funções dos colegas pelos nomes
    > combinados e fiquem aguardando enquanto o arquivo de cada um não existir."
 
-   *Decisão nossa a partir da resposta:* os testes da busca por tema, do Modelo 1
+   _Decisão nossa a partir da resposta:_ os testes da busca por tema, do Modelo 1
    e do menu (`sistema.py`) ficam marcados como "aguardando" até o código chegar,
    e passam a rodar sozinhos quando ele entrar no repositório.
 
 2. **Formato do Modelo 2**
+
    > "Defina seções fixas para uma resposta educativa: resumo, passo a passo,
    > atenção e assuntos relacionados. Seção sem conteúdo não deve aparecer em
    > branco. A fonte e o aviso vêm de outra função, feita por outro integrante."
 
 3. **Testes de entradas estranhas**
+
    > "Liste entradas de teclado que costumam quebrar programas de terminal em
    > Python (Enter vazio, Ctrl+D, números negativos, decimais, caracteres Unicode
    > que parecem dígitos, textos enormes, emojis)."
@@ -60,12 +63,12 @@ em vez de pedidos genéricos. Exemplos reais do que foi pedido:
 - **Casos que continuam falhando** ficam no arquivo de propósito, porque mostram as
   limitações reais (ver `docs/resultado_indicador.md`).
 
-## 4. O que a IA NÃO fez
+## 4. Limites do uso de IA
 
-- Não escreveu nem validou as orientações da base. Cada registro tem `autor`,
-  `referencia` e `data_verificacao` preenchidos por um integrante.
-- Não decidiu sozinha: todo código gerado foi lido, executado e testado pela equipe
-  (`python -m unittest discover -s tests`).
+- A revisão assistida por IA comparou orientações com fontes oficiais; os registros
+  contêm `referencia` e `data_verificacao`, sem campo individual de autor.
+- O código deve ser revisado pelos integrantes; os testes podem ser executados com
+  `python -m unittest discover -s tests`.
 - Não substitui orientação jurídica ou médica. O aviso de limitação aparece nas
   respostas.
 
@@ -82,13 +85,14 @@ em vez de pedidos genéricos. Exemplos reais do que foi pedido:
 
 > Cada um preenche a sua linha. Se não usou IA, escreva "não usei".
 
-| Integrante | Ferramenta | Para quê | O que foi conferido / alterado |
-|---|---|---|---|
-| Pedro Lima: Git/Admin, Integração, Modelo 2, Indicador | Claude | estrutura do código, testes, este documento | Rodei os testes no meu computador a cada entrega; revisei o código gerado e pedi para retirar comentários e as partes que pertenciam a outros integrantes; conferi os erros encontrados pelo indicador antes de reportar ao grupo. |
-| Gabriel Tavares: Dados e carregamento | | | |
-| Matheus Traiba: Busca e menu | | | |
-| Miguel Moreira: Respostas e erros | | | |
-| Lucas Carvalho: Revisão e indicadores | | | |
+| Integrante                                             | Ferramenta     | Para quê                                                                                      | O que foi conferido / alterado                                                                                                                                                                                                     |
+| ------------------------------------------------------ | -------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Pedro Lima: Git/Admin, Integração, Modelo 2, Indicador | Claude         | estrutura do código, testes, este documento                                                   | Rodei os testes no meu computador a cada entrega; revisei o código gerado e pedi para retirar comentários e as partes que pertenciam a outros integrantes; conferi os erros encontrados pelo indicador antes de reportar ao grupo. |
+| Gabriel Tavares: Dados e carregamento                  |                |                                                                                               |                                                                                                                                                                                                                                    |
+| Matheus Traiba: Busca e menu                           |                |                                                                                               |                                                                                                                                                                                                                                    |
+| Miguel Moreira: Respostas e erros                      |                |                                                                                               |                                                                                                                                                                                                                                    |
+| Lucas Carvalho: Revisão e indicadores                  | Codex (OpenAI) | Revisão da base e das referências, README, função de fonte e aviso, medição de tempo e testes | Comparação com fontes oficiais registrada em `docs/revisao_base.md`; execução local das perguntas, da suíte de testes e do indicador.                                                                                              |
 
 ---
-*Última atualização: 16/11/2026.*
+
+_Última atualização: 17/11/2026._
