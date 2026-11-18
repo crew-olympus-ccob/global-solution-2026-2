@@ -12,6 +12,7 @@ consultadas estão registradas na base e em `docs/revisao_base.md`.
 | Claude (Anthropic) | Modelo 2 (`src/saida.py`), indicador (`src/indicador.py`), testes em `tests/`, rascunho deste arquivo           | Pedro Lima     |
 | Codex (OpenAI)     | Revisão da base e das referências, documentação, função de fonte e aviso, medição do tempo e execução de testes | Lucas Carvalho |
 | Claude (Anthropic) | Dúvidas e apoio na implementação dos dados (`data/base_conhecimento.json`, `src/carregador.py`) e da navegação (`src/navegacao.py`) | Gabriel Tavares |
+| Claude (Anthropic) | Apoio na escrita de partes da busca por tema (`src/busca_tema.py`), do Modelo 1 (`src/respostas.py`) e do tratamento de erros (`src/erros.py`) | Miguel Moreira |
 
 ## 2. Como a IA apoiou a estruturação de prompts
 
@@ -91,7 +92,7 @@ em vez de pedidos genéricos. Exemplos reais do que foi pedido:
 | Pedro Lima: Git/Admin, Integração, Modelo 2, Indicador | Claude         | estrutura do código, testes, este documento                                                   | Rodei os testes no meu computador a cada entrega; revisei o código gerado e pedi para retirar comentários e as partes que pertenciam a outros integrantes; conferi os erros encontrados pelo indicador antes de reportar ao grupo. |
 | Gabriel Tavares: Dados e carregamento | Claude (Anthropic) | Tirar dúvidas e receber ajuda na implementação dos dados (registros de Documentação e leitura segura do JSON) e da navegação entre assuntos relacionados | Revisei o que foi sugerido antes de usar e aprovei a correção da navegação feita pelo Pedro (PR #11). |
 | Matheus Traiba: Busca e menu                           |                |                                                                                               |                                                                                                                                                                                                                                    |
-| Miguel Moreira: Respostas e erros                      |                |                                                                                               |                                                                                                                                                                                                                                    |
+| Miguel Moreira: Respostas e erros | Claude (Anthropic) | Apoio na escrita de partes do código da busca por tema, do Modelo 1 e do tratamento de erros | Li e executei o código antes de integrar e rodei os testes de `tests/test_miguel.py`. Redigi os 5 registros de Serviços (ids 11 a 15) a partir de fontes oficiais; a revisão posterior da base está em `docs/revisao_base.md`. |
 | Lucas Carvalho: Revisão e indicadores                  | Codex (OpenAI) | Revisão da base e das referências, README, função de fonte e aviso, medição de tempo e testes | Comparação com fontes oficiais registrada em `docs/revisao_base.md`; execução local das perguntas, da suíte de testes e do indicador.                                                                                              |
 
 ---
