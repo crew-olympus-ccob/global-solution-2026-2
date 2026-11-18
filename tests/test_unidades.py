@@ -206,11 +206,9 @@ class TestValidacaoNavegacao(unittest.TestCase):
     def test_lixo_e_zero(self):
         self.assertIsNone(self._escolher(["", "abc", "-1", "99", "0"]))
 
-    @unittest.expectedFailure
     def test_superescrito_nao_quebra(self):
         self.assertEqual(self._escolher(["²", "1"])["id"], 2)
 
-    @unittest.expectedFailure
     def test_ctrl_d_nao_quebra(self):
         self.assertIsNone(self._escolher(EOFError()))
 
