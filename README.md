@@ -169,7 +169,11 @@ Por exemplo, um registro é representado assim:
 ```
 
 O exemplo ilustra o formato; consulte a base para a orientação completa. As referências podem reunir mais de um endereço, separados por ` | `.
- 
+
+## Vídeo de Apresentação
+
+Segue o link do nosso vídeo de apresentação do projeto: https://youtu.be/yMNf-b0zAsk.
+
 ---
  
 # Aviso
